@@ -1,6 +1,6 @@
 .board {
-  min-width: 290px;
-  width: 290px;
+  min-width: 240px;
+  width: 250px;
   max-height: 100%;
   flex-basis: 290px;
   display: flex;
@@ -53,12 +53,15 @@
 }
 
 .board_add-card {
-  background-color: #fff;
-  color: #000;
-  border-radius: 10px;
+  background-color: #3b9ce1;
+  color: #000000;
+  /*border-radius: 10px;*/
   box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.12);
-  width: 100%;
+  border-radius: 6px;
+  width: 90%;
   text-align: center;
+  margin-left:0.8rem;
+
 }
 .board_add-card_edit {
   background-color: #fff;

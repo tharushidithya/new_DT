@@ -1,0 +1,56 @@
+.bg-color{
+    background-color: #9cc9ef;
+}
+
+
+.progress{
+    width: 15rem;
+    height: 18rem;
+    padding-top: 2rem;
+    background-color: var(--glass);
+    margin:0;
+
+
+}
+
+.cost{
+    width: 15rem;
+    height: 15rem;
+    padding-top:3rem;
+    padding-right:1rem;
+    background-color: var(--glass);
+    align-items: center;
+
+    margin:0;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    color: #ffffff;
+
+}
+
+.project-title{
+
+    padding:2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9dcaf0;
+    height:2.5rem;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom:0.8rem;
+    margin-top:0.8rem;
+
+
+}
+

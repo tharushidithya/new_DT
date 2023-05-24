@@ -9,6 +9,13 @@
   height: fit-content;
 }
 
+.subtask_box {
+  padding: 1rem;
+  background-color: #b5dca5;
+  border-radius: 6px;
+  width: 700px;
+}
+
 .cardinfo_box {
   width: 100%;
   display: flex;
@@ -36,6 +43,7 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  padding:1rem;
 }
 
 .cardinfo_box_labels label {
@@ -59,6 +67,7 @@
   gap: 15px;
   margin-left: 20px;
 }
+
 .cardinfo_box ul li {
   list-style: none;
   width: 20px;
@@ -72,16 +81,17 @@
 }
 
 .cardinfo_box_progress-bar {
-  width: 100%;
+  width: 95%;
   border-radius: 30px;
   height: 10px;
   border: 1px solid #ccc;
+  background-color: ghostwhite;
 }
 
 .cardinfo_box_progress {
   height: 100%;
   border-radius: 30px;
-  background-color: skyblue;
+  background-color: #4e9131;
   width: 0;
   transition: 200ms;
 }
@@ -89,12 +99,14 @@
 .cardinfo_box_task_list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
+
 }
 
 .cardinfo_box_task_checkbox {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 15px;
 }
 
 .cardinfo_box_task_checkbox input,
@@ -103,6 +115,7 @@
   width: 18px;
   outline: none;
   cursor: pointer;
+
 }
 
 .cardinfo_box_task_checkbox p {
@@ -114,11 +127,57 @@
   text-decoration-line: line-through;
 }
 
+.cardinfo_box_task_checkbox .checkbox_and_task {
+  display: grid;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.cardinfo_box_task_checkbox .calendar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .cardinfo_box input[type="date"] {
   width: fit-content;
-  border: 2px solid #ddd;
+  border: 2px solid #afd998;
   border-radius: 5px;
   outline: none;
   font-size: 1rem;
   padding: 10px;
+}
+
+.taskInput {
+  width: 200px; /* Set the desired width */
+}
+
+
+.cardinfo_inline_boxes {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  padding-bottom:1rem;
+}
+
+.cardinfo_inline_box {
+  flex: 1;
+}
+
+.cardinfo_inline_box .cardinfo_box_title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.cardinfo_inline_box .cardinfo_box_title p {
+  margin-left: 5px;
+}
+
+.cardinfo_inline_box input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }

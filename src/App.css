@@ -1,64 +1,59 @@
-.custom-scroll::-webkit-scrollbar {
-  width: 8px;
+:root {
+    --yellow: linear-gradient(180deg, #ffffff -146.42%, #78d9aa -46.42%);
+    --orange: #7c6af1;
+    --black: #242d49;
+    --gray: #788097;
+    --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
+    --pink: #50aff6;
+    --glass: rgba(255, 255, 255, 0.54);
+    --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+    --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+    --activeItem: #f799a354;
 }
 
-.custom-scroll::-webkit-scrollbar-thumb {
-  border-radius: 50px;
-  border: 1px solid #ccc;
-  background-color: #fff;
+.App {
+    /* padding: 0.5rem 3.5rem; */
+    color: var(--black);
+    background: linear-gradient(
+            106.37deg,
+            #2c8ee1 29.63%,
+            #91faff 51.55%,
+            #3b9ce1 90.85%
+    );
+    height: 100vh;
+    display: flex;
+    /*align-items: center;*/
+
+    font-family: 'Inter', sans-serif;
+
 }
 
-.custom-scroll::-webkit-scrollbar-thumb:hover {
-  border: 1px solid gray;
+.AppGlass {
+    /*display: grid;*/
+    height: 50rem;
+    width: 60rem;
+    padding:0.5rem;
+    display: flex;
+    background-color: var(--glass);
+    /*border-radius: 0.4rem;*/
+    gap: 16px;
+    /*grid-template-columns: 4rem auto 10rem;*/
+    overflow: hidden;
+
+
 }
 
-.app {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+@media screen and (max-width: 1200px) {
+    .AppGlass{
+        grid-template-columns: 10% 50% auto;
+        overflow-y: scroll;
+    }
 }
 
-.app_nav {
-  padding: 30px;
-  box-shadow: 0 1px 20px rgba(56, 40, 40, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  background-color: #fff;
+@media screen and (max-width: 768px) {
+    .AppGlass{
+        grid-template-columns: 1fr;
+    }
 }
 
-.app_boards_container {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  overflow-x: auto;
-  padding-top: 20px;
-}
 
-.app_boards {
-  height: 100%;
-  width: fit-content;
-  padding: 10px 30px;
-  display: flex;
-  gap: 30px;
-}
-
-.app_boards_last {
-  flex-basis: 290px;
-  min-width: 290px;
-}
-
-.app_boards_add-board {
-  background-color: #fff;
-  color: #000;
-  border-radius: 10px;
-  box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.12);
-  width: 100%;
-  text-align: center;
-}
-.app_boards_add-board_edit {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 10px;
-}

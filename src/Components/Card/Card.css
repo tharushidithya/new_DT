@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #fff;
+  background-color: #abdbf6;
   border-radius: 10px;
 }
 
@@ -82,4 +82,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.card_info {
+  margin-bottom: 1px;
+  border:black;
+  display: flex;
+  padding:5px;
+}
+
+.card_info_label {
+  margin-right: 10px;
+
+}
+
+.card_info_value {
+  border-radius: 10%;
+  height: 16.5px;
+  width: 28px;
+  background-color: #dee0e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
 }

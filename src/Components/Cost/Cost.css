@@ -1,0 +1,40 @@
+.Cost {
+    max-width: 600px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.Cost .chart-container {
+    position: relative;
+    margin-top: 30px;
+    height: 6rem; /* or any other height value you want */
+
+}
+
+
+.Cost .chart-legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+
+.Cost .chart-legend li {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    list-style: none;
+}
+
+.Cost .chart-legend li span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+.Cost .chart-legend li p {
+    margin: 0;
+    font-size: 14px;
+}
