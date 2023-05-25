@@ -43,6 +43,7 @@ function CardInfo(props) {
   };
 
 
+
   const [kpi, setKpi] = useState("");
   const [budget, setBudget] = useState("");
   const [weight, setWeight] = useState("");
@@ -103,19 +104,20 @@ function CardInfo(props) {
     });
   };
 
-  const updateTask = (id, value) => {
+  const updateTask = (id, field, value) => {
     const tasks = [...values.tasks];
+    const taskIndex = tasks.findIndex((item) => item.id === id);
+    if (taskIndex < 0) return;
 
-    const index = tasks.findIndex((item) => item.id === id);
-    if (index < 0) return;
-
-    tasks[index].completed = value;
+    tasks[taskIndex][field] = value;
 
     setValues({
       ...values,
-      tasks,
+      tasks: tasks,
     });
   };
+
+
 
   const calculatePercent = () => {
     if (!values.tasks?.length) return 0;
@@ -123,14 +125,15 @@ function CardInfo(props) {
     return (completed / values.tasks?.length) * 100;
   };
 
-  const updateDate = (date) => {
+  const updateDate = (fieldName, date) => {
     if (!date) return;
 
     setValues({
       ...values,
-      date,
+      [fieldName]: date,
     });
   };
+
 
   useEffect(() => {
     if (props.updateCard) props.updateCard(props.boardId, values.id, values);
@@ -220,8 +223,10 @@ function CardInfo(props) {
                   type="date"
                   value={values.startDate || ""}
                   min={values.startDate || new Date().toISOString().substr(0, 10)}
-                  onChange={(event) => updateDate(values.id, event.target.value, "startDate")}
+                  onChange={(event) => updateDate("startDate", event.target.value)}
               />
+
+
             </div>
 
             <div className="cardinfo_box">
@@ -233,7 +238,7 @@ function CardInfo(props) {
                   type="date"
                   value={values.endDate || ""}
                   min={values.startDate || new Date().toISOString().substr(0, 10)}
-                  onChange={(event) => updateDate(values.id, event.target.value, "endDate")}
+                  onChange={(event) => updateDate("endDate", event.target.value)}
               />
             </div>
           </div>
@@ -266,13 +271,13 @@ function CardInfo(props) {
               ))}
             </ul>
             <div style={{ padding:"1rem" }}>
-            <Editable
-                text="Add Label"
-                placeholder="Enter label text"
-                onSubmit={(value) =>
-                    addLabel({ color: selectedColor, text: value })
-                }
-            /></div>
+              <Editable
+                  text="Add Label"
+                  placeholder="Enter label text"
+                  onSubmit={(value) =>
+                      addLabel({ color: selectedColor, text: value })
+                  }
+              /></div>
           </div>
 
           <div className="subtask_box">
@@ -303,45 +308,42 @@ function CardInfo(props) {
                               updateTask(item.id, "completed", event.target.checked)
                           }
                       />
-                      <div style={{marginTop:'50px'}}>
-                        <Editable
-                            defaultValue={item.text}
-                            text={item.text }
-                            placeholder="Enter task"
-                            onSubmit={(value) => updateTask(item.id, "text", value)}
-
-                        />
-                        <br/>
-
-                        <Editable
-                            defaultValue={item.desc}
-                            text={item.desc || "Add a Description"}
-                            placeholder="Enter description"
-                            onSubmit={(value) =>
-                                updateTask(item.id, "desc", value)
+                      <div>
+                        <div style={{ marginTop: "60px" }}>
+                          <Editable
+                              text={item.text}
+                              placeholder="Enter task"
+                              onSubmit={(value) => updateTask(item.id, "text", value)}
+                          /></div>
+                        <br />
+                        {/* Add a text box for the description */}
+                        <textarea
+                            className="taskDescription"
+                            value={item.description}
+                            onChange={(event) =>
+                                updateTask(item.id, "description", event.target.value)
                             }
-
+                            placeholder="Enter description"
                         />
+
 
 
                       </div>
-
-                      <div style={{padding: '3rem'}}>
+                      <div style={{ padding: "3rem", marginBottom:'1rem' }}>
                         <h4>Start date</h4>
                         <Calendar />
                         <input
                             type="date"
                             defaultValue={item.startDate}
                             min={new Date().toISOString().substr(0, 10)}
-                            onChange={(event) =>
-                                updateDate(item.id, event.target.value)
-                            }
+                            onChange={(event) => updateDate(item.id, event.target.value)}
                         />
                       </div>
                       <Trash onClick={() => removeTask(item.id)} />
                     </div>
                 ))}
               </div>
+
               <br/>
               <Editable
                   text={"Add a sub task"}

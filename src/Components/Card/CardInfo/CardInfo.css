@@ -181,3 +181,19 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+
+
+.taskDescription {
+  border: none;
+  border-radius: 3px;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+  width: 100%;
+  min-height: 32px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ececed;
+}
