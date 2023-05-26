@@ -19,17 +19,8 @@ import "./CardInfo.css";
 
 
 function CardInfo(props) {
-  const colors = [
-    "#a8193d",
-    "#4fcc25",
-    "#1ebffa",
-    "#8da377",
-    "#9975bd",
-    "#cf61a1",
-    "#240959",
-  ];
 
-  const [selectedColor, setSelectedColor] = useState();
+
   const [values, setValues] = useState({
     ...props.card,
   });
@@ -43,10 +34,11 @@ function CardInfo(props) {
   };
 
 
-
   const [kpi, setKpi] = useState("");
   const [budget, setBudget] = useState("");
   const [weight, setWeight] = useState("");
+  const [actualweight, setActualWeight] = useState("");
+
 
   const handleKpiChange = (event) => {
     setKpi(event.target.value);
@@ -60,27 +52,12 @@ function CardInfo(props) {
     setWeight(event.target.value);
   };
 
-
-
-  const addLabel = (label) => {
-    const index = values.labels.findIndex((item) => item.text === label.text);
-    if (index > -1) return;
-
-    setSelectedColor("");
-    setValues({
-      ...values,
-      labels: [...values.labels, label],
-    });
+  const handleActualWeightChange = (event) => {
+    setActualWeight(event.target.value);
   };
 
-  const removeLabel = (label) => {
-    const tempLabels = values.labels.filter((item) => item.text !== label.text);
 
-    setValues({
-      ...values,
-      labels: tempLabels,
-    });
-  };
+
 
   const addTask = (value) => {
     const task = {
@@ -94,15 +71,6 @@ function CardInfo(props) {
     });
   };
 
-  const removeTask = (id) => {
-    const tasks = [...values.tasks];
-
-    const tempTasks = tasks.filter((item) => item.id !== id);
-    setValues({
-      ...values,
-      tasks: tempTasks,
-    });
-  };
 
   const updateTask = (id, field, value) => {
     const tasks = [...values.tasks];
@@ -118,12 +86,6 @@ function CardInfo(props) {
   };
 
 
-
-  const calculatePercent = () => {
-    if (!values.tasks?.length) return 0;
-    const completed = values.tasks?.filter((item) => item.completed)?.length;
-    return (completed / values.tasks?.length) * 100;
-  };
 
   const updateDate = (fieldName, date) => {
     if (!date) return;
@@ -168,11 +130,24 @@ function CardInfo(props) {
             />
           </div>
 
-          <div className="cardinfo_inline_boxes">
+
             {/* KPI text box */}
+            <div >
+              <div className="cardinfo_box_title" style={{paddingRight:'2rem' }}>
+              <p>Budget</p>
+            </div>
+          <input
+              type="text"
+              value={values.budget}
+              onChange={(e) => setValues({ ...values, budget: e.target.value })}
+              placeholder="Enter Budget"
+          />
+            </div>
+
+
+            {/* Budget text box */}
             <div className="cardinfo_inline_box" style={{paddingRight:'2rem' }}>
               <div className="cardinfo_box_title">
-                <Tag />
                 <p>KPI</p>
               </div>
               <input
@@ -183,22 +158,10 @@ function CardInfo(props) {
               />
             </div>
 
-            {/* Budget text box */}
-            <div className="cardinfo_inline_box" style={{paddingRight:'2rem' }}>
-              <div className="cardinfo_box_title">
-                <Tag />
-                <p>Budget</p>
-              </div>
-              <input
-                  type="text"
-                  value={values.budget}
-                  onChange={(e) => setValues({ ...values, budget: e.target.value })}
-                  placeholder="Enter Budget"
-              />
-            </div>
 
+          <div className="cardinfo_inline_boxes">
             {/* Weight text box */}
-            <div className="cardinfo_inline_box">
+            <div className="cardinfo_inline_box" style={{paddingRight:'2rem' }}>
               <div className="cardinfo_box_title">
                 <Tag />
                 <p>Weight</p>
@@ -210,6 +173,22 @@ function CardInfo(props) {
                   placeholder="Enter Weight"
               />
             </div>
+
+
+            <div className="cardinfo_inline_box">
+              <div className="cardinfo_box_title">
+                <Tag />
+                <p>Actual Weight</p>
+              </div>
+              <input
+                  type="text"
+                  value={values.actualweight}
+                  onChange={(e) => setValues({ ...values, actualweight: e.target.value })}
+                  placeholder="Enter Actual Weight"
+              />
+            </div>
+
+
           </div>
 
 
@@ -244,57 +223,12 @@ function CardInfo(props) {
           </div>
 
 
-          <div className="cardinfo_box">
-            <div className="cardinfo_box_title">
-              <Tag />
-              <p>Labels</p>
-            </div>
-            <div className="cardinfo_box_labels">
-              {values.labels?.map((item, index) => (
-                  <label
-                      key={index}
-                      style={{ backgroundColor: item.color, color: "#fff" }}
-                  >
-                    {item.text}
-                    <X onClick={() => removeLabel(item)} />
-                  </label>
-              ))}
-            </div>
-            <ul>
-              {colors.map((item, index) => (
-                  <li
-                      key={index + item}
-                      style={{ backgroundColor: item }}
-                      className={selectedColor === item ? "li_active" : ""}
-                      onClick={() => setSelectedColor(item)}
-                  />
-              ))}
-            </ul>
-            <div style={{ padding:"1rem" }}>
-              <Editable
-                  text="Add Label"
-                  placeholder="Enter label text"
-                  onSubmit={(value) =>
-                      addLabel({ color: selectedColor, text: value })
-                  }
-              /></div>
-          </div>
 
           <div className="subtask_box">
             <div className="cardinfo_box">
               <div className="cardinfo_box_title">
                 <CheckSquare />
                 <p>Sub Tasks</p>
-              </div>
-              <div className="cardinfo_box_progress-bar">
-                <div
-                    className="cardinfo_box_progress"
-                    style={{
-                      width: `${calculatePercent()}%`,
-                      backgroundColor:
-                          calculatePercent() === 100 ? "limegreen" : "",
-                    }}
-                />
               </div>
 
 
@@ -339,7 +273,7 @@ function CardInfo(props) {
                             onChange={(event) => updateDate(item.id, event.target.value)}
                         />
                       </div>
-                      <Trash onClick={() => removeTask(item.id)} />
+
                     </div>
                 ))}
               </div>
