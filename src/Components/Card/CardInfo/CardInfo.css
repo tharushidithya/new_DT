@@ -10,7 +10,7 @@
 }
 
 .subtask_box {
-  padding: 1rem;
+padding-right: 10px;
   border-radius: 6px;
   width: 700px;
 }
@@ -38,28 +38,6 @@
   width: 18px;
 }
 
-.cardinfo_box_labels {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding:1rem;
-}
-
-.cardinfo_box_labels label {
-  border-radius: 40px;
-  background-color: gray;
-  color: #fff;
-  padding: 4px 8px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.cardinfo_box_labels label svg {
-  height: 16px;
-  width: 16px;
-  cursor: pointer;
-}
 
 .cardinfo_box ul {
   display: flex;
@@ -156,8 +134,8 @@
 
 
 .subtask_table td {
-  padding:10px;
-  border-bottom: 1.5rem solid #ffffff;
+  padding:6px;
+  border-bottom: 1rem solid #ffffff;
   text-align: left;
 }
 
@@ -175,7 +153,8 @@
 .calendar-input {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
+
 
 }
 
