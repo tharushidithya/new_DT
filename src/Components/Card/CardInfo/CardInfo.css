@@ -11,7 +11,6 @@
 
 .subtask_box {
   padding: 1rem;
-  background-color: #b5dca5;
   border-radius: 6px;
   width: 700px;
 }
@@ -80,21 +79,6 @@
   box-shadow: 0 0 0 3px yellow;
 }
 
-.cardinfo_box_progress-bar {
-  width: 95%;
-  border-radius: 30px;
-  height: 10px;
-  border: 1px solid #ccc;
-  background-color: ghostwhite;
-}
-
-.cardinfo_box_progress {
-  height: 100%;
-  border-radius: 30px;
-  background-color: #4e9131;
-  width: 0;
-  transition: 200ms;
-}
 
 .cardinfo_box_task_list {
   display: flex;
@@ -103,46 +87,11 @@
 
 }
 
-.cardinfo_box_task_checkbox {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
 
-.cardinfo_box_task_checkbox input,
-.cardinfo_box_task_checkbox svg {
-  height: 18px;
-  width: 18px;
-  outline: none;
-  cursor: pointer;
 
-}
-
-.cardinfo_box_task_checkbox p {
-  flex: 1;
-  line-height: 18px;
-}
-
-.cardinfo_box_task_checkbox .completed {
-  text-decoration-line: line-through;
-}
-
-.cardinfo_box_task_checkbox .checkbox_and_task {
-  display: grid;
-  align-items: center;
-  gap: 10px;
-
-}
-
-.cardinfo_box_task_checkbox .calendar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 
 .cardinfo_box input[type="date"] {
   width: fit-content;
-  border: 2px solid #afd998;
   border-radius: 5px;
   outline: none;
   font-size: 1rem;
@@ -197,3 +146,49 @@
   flex-direction: column;
   background-color: #ececed;
 }
+
+
+.subtask_table {
+  width: 195%;
+  border-collapse: collapse;
+
+}
+
+
+.subtask_table td {
+  padding:10px;
+  border-bottom: 1.5rem solid #ffffff;
+  text-align: left;
+}
+
+.subtask_table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.subtask_table input[type="text"],
+.subtask_table select {
+  width: 100%;
+}
+
+.calendar-input {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.subtask_box button {
+  margin-bottom: 3rem;
+  width: 195%;
+  padding:5px;
+  font-weight: bold;
+}
+
+
+.subtask_card {
+  background-color: #cde4ff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+

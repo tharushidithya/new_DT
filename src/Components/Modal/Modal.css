@@ -14,8 +14,8 @@
 
 .modal_content {
   overflow-y: auto;
-  max-height: 95vh;
-  width: 90%;
+  max-height: 100%;
+  width: 100%;
   background-color: #fff;
   border-radius: 3px;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.12);
@@ -23,4 +23,16 @@
 
 .modal_content::-webkit-scrollbar {
   width: 12px !important;
+}
+
+/* Modal.css */
+.close_button {
+  position: absolute;
+  top: 1px;
+  right: 50px;
+  border: none;
+  font-size: 80px;
+  cursor: pointer;
+  color: #000;
+  background: none;
 }

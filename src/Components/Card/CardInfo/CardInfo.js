@@ -1,19 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  Calendar,
-  CheckSquare,
-  List,
-  Tag,
-  Trash,
-  Type,
-  X,
-} from "react-feather";
-
+import { Calendar, CheckSquare, List, Tag, Trash, Type, X } from "react-feather";
 import Modal from "../../Modal/Modal.js";
 import Editable from "../../Editabled/Editable.js";
-
 import "./CardInfo.css";
-
 
 
 
@@ -231,61 +220,124 @@ function CardInfo(props) {
                 <p>Sub Tasks</p>
               </div>
 
-
-              <div className="cardinfo_box_task_list">
+              <table className="subtask_table">
+                <thead>
+                <tr>
+                  <th>Task Name</th>
+                  <th>Description</th>
+                  <th>Planned Start Date</th>
+                  <th>Planned End Date</th>
+                  <th>Actual Start Date</th>
+                  <th>Actual End Date</th>
+                  <th>Status</th>
+                  <th>Remark</th>
+                  <th>Members Assigned</th>
+                </tr>
+                </thead>
+                <tbody>
                 {values.tasks?.map((item) => (
-                    <div key={item.id} className="cardinfo_box_task_checkbox">
-                      <input
-                          type="checkbox"
-                          defaultChecked={item.completed}
-                          onChange={(event) =>
-                              updateTask(item.id, "completed", event.target.checked)
-                          }
-                      />
-                      <div>
-                        <div style={{ marginTop: "60px" }}>
-                          <Editable
-                              text={item.text}
-                              placeholder="Enter task"
-                              onSubmit={(value) => updateTask(item.id, "text", value)}
-                          /></div>
-                        <br />
-                        {/* Add a text box for the description */}
-                        <textarea
-                            className="taskDescription"
+                    <tr key={item.id} className={"subtask_card"}>
+                      <td >
+                        <input
+                            type="text"
+                            value={item.text}
+                            onChange={(event) =>
+                                updateTask(item.id, "text", event.target.value)
+                            }
+                        />
+                      </td>
+                      <td>
+                        <input
+                            type="text"
                             value={item.description}
                             onChange={(event) =>
                                 updateTask(item.id, "description", event.target.value)
                             }
-                            placeholder="Enter description"
                         />
-
-
-
-                      </div>
-                      <div style={{ padding: "3rem", marginBottom:'1rem' }}>
-                        <h4>Start date</h4>
-                        <Calendar />
+                      </td>
+                      <td>
+                        <div className="calendar-input">
+                          <input
+                              type="date"
+                              value={item.plannedStartDate || ""}
+                              onChange={(event) =>
+                                  updateTask(item.id, "plannedStartDate", event.target.value)
+                              }
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div className="calendar-input">
+                          <input
+                              type="date"
+                              value={item.plannedEndDate || ""}
+                              onChange={(event) =>
+                                  updateTask(item.id, "plannedEndDate", event.target.value)
+                              }
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div className="calendar-input">
+                          <input
+                              type="date"
+                              value={item.actualStartDate || ""}
+                              onChange={(event) =>
+                                  updateTask(item.id, "actualStartDate", event.target.value)
+                              }
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div className="calendar-input">
+                          <input
+                              type="date"
+                              value={item.actualEndDate || ""}
+                              onChange={(event) =>
+                                  updateTask(item.id, "actualEndDate", event.target.value)
+                              }
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <select
+                            value={item.status || ""}
+                            onChange={(event) =>
+                                updateTask(item.id, "status", event.target.value)
+                            }
+                        >
+                          <option value="todo">To Do</option>
+                          <option value="inprogress">In Progress</option>
+                          <option value="completed">Completed</option>
+                        </select>
+                      </td>
+                      <td>
                         <input
-                            type="date"
-                            defaultValue={item.startDate}
-                            min={new Date().toISOString().substr(0, 10)}
-                            onChange={(event) => updateDate(item.id, event.target.value)}
+                            type="text"
+                            value={item.remark}
+                            onChange={(event) =>
+                                updateTask(item.id, "remark", event.target.value)
+                            }
                         />
-                      </div>
-
-                    </div>
+                      </td>
+                      <td>
+                        <input
+                            type="text"
+                            value={item.membersAssigned}
+                            onChange={(event) =>
+                                updateTask(item.id, "membersAssigned", event.target.value)
+                            }
+                        />
+                      </td>
+                    </tr>
                 ))}
-              </div>
+                </tbody>
+              </table>
 
-              <br/>
-              <Editable
-                  text={"Add a sub task"}
-                  placeholder="Enter task"
-                  onSubmit={addTask}
-              />
+              <button className="addTask" onClick={() => addTask("New Task")}>Add Task</button>
             </div>
           </div>
+
         </div>
       </Modal>
   );
