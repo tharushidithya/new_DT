@@ -152,7 +152,6 @@ function CardInfo(props) {
             {/* Weight text box */}
             <div className="cardinfo_inline_box" style={{paddingRight:'2rem' }}>
               <div className="cardinfo_box_title">
-                <Tag />
                 <p>Weight</p>
               </div>
               <input
@@ -166,7 +165,6 @@ function CardInfo(props) {
 
             <div className="cardinfo_inline_box">
               <div className="cardinfo_box_title">
-                <Tag />
                 <p>Actual Weight</p>
               </div>
               <input

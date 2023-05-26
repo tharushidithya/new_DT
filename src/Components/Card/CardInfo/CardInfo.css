@@ -162,8 +162,9 @@
 }
 
 .subtask_table th {
-  background-color: #f2f2f2;
+  background-color: #7ab1e0;
   font-weight: bold;
+  padding:10px;
 }
 
 .subtask_table input[type="text"],
@@ -175,6 +176,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+
 }
 
 .subtask_box button {
@@ -182,11 +184,12 @@
   width: 195%;
   padding:5px;
   font-weight: bold;
+
 }
 
 
 .subtask_card {
-  background-color: #cde4ff;
+  background-color: #c5c9cc;
   border-radius: 4px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
