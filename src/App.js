@@ -1,20 +1,26 @@
-import React from "react";
+// App.js
+import React, { useState } from "react";
 import './App.css';
-import Notification from './Components/Notification/Notification.js';
-import KanbanApp from './KanbanApp.js';
-import Leftside from './Components/Leftside/Leftside.js';
-// import ProjectPage from './components/ProjectPage/ProjectPage';
-
-
+import Landing_Page from "./Landing_Page.js";
+import Sub_Project from "./Sub_Project.js";
 
 function App() {
+    const [showSubProject, setShowSubProject] = useState(false);
+
+    const handleSubProjectButtonClick = () => {
+        setShowSubProject(true);
+    };
+
     return (
         <div className="App">
-            <Leftside/>
-            <div className="AppGlass"><KanbanApp/></div>
-            <Notification/>
+            <div className="AppGlass">
+                {showSubProject ? (
+                    <Sub_Project />
+                ) : (
+                    <Landing_Page onSubProjectButtonClick={handleSubProjectButtonClick} />
+                )}
+            </div>
         </div>
-
     );
 }
 

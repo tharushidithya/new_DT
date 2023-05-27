@@ -30,8 +30,8 @@
 
 .AppGlass {
     /*display: grid;*/
-    height: 50rem;
-    width: 60rem;
+    height: 100%;
+    width: 100%;
     padding:0.5rem;
     display: flex;
     background-color: var(--glass);
@@ -54,6 +54,16 @@
     .AppGlass{
         grid-template-columns: 1fr;
     }
+}
+
+
+.Sub_Project {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
 }
 
 

@@ -1,6 +1,6 @@
-.bg-color{
-    background-color: #9cc9ef;
-}
+/*.bg-color{*/
+/*    background-color: #9cc9ef;*/
+/*}*/
 
 
 .progress{
@@ -20,7 +20,6 @@
     padding-right:1rem;
     background-color: var(--glass);
     align-items: center;
-
     margin:0;
 }
 
@@ -34,22 +33,23 @@
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
     color: #ffffff;
+    width:15rem;
 
 }
 
 .project-title{
 
-    padding:2rem;
+    padding:1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #9dcaf0;
     height:2.5rem;
     font-size: 30px;
     font-weight: bold;
     color: #000000;
     margin-bottom:0.8rem;
     margin-top:0.8rem;
+    width:15rem;
 
 
 }
