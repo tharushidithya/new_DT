@@ -110,6 +110,19 @@ padding-right: 10px;
 }
 
 
+.card_dates{
+display: inline-flex;
+  gap: 9rem;
+  padding-bottom:1rem;
+  padding-top:1rem;
+
+
+}
+
+
+
+
+
 
 .taskDescription {
   border: none;
