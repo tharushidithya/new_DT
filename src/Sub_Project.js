@@ -7,7 +7,7 @@ function Sub_Project({ subProject, onBackButtonClick }) {
     return (
         <div className="Sub_Project">
             <div className="container">
-                <h1 className="project_title">Sub Project {subProject.id}</h1>
+                <h2 className="project_title">Sub Project {subProject.id}</h2>
                 <button className="back_button" onClick={onBackButtonClick}><span>&#8680;</span></button>
                 {/* Render the subproject page content */}
                         <Leftside/>

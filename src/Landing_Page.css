@@ -5,10 +5,10 @@
     flex-direction: column;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(to bottom, #f1f1f1, #ffffff);
+    background: linear-gradient(to bottom, #9dfad0, #094473);
     background-size: cover;
-    background-position: center;
     overflow: auto;
+    position: relative;
 }
 
 .home-bannerImage-container {
@@ -36,7 +36,7 @@ h1 {
 h3 {
     font-size: 30px;
     margin: 50px;
-    color: #88d1ff;
+    color: #bfffe2;
 }
 
 button:focus {
@@ -63,6 +63,7 @@ button:active {
 .sub-projects-container {
     display: flex;
     align-items: center;
+    margin-left:20px;
 }
 
 .sub-projects-heading {
@@ -72,10 +73,16 @@ button:active {
 .sub-projects-list {
     list-style-type: none;
     padding: 0;
+    margin-left: 270px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .sub-project-item {
     margin-bottom: 10px;
+    width: calc(50% - 20px); /* Adjust the width as per your preference */
 }
 
 .sub-project-button {
@@ -84,9 +91,37 @@ button:active {
     color: #ffffff;
     background: none;
     border-width: thin;
+    border-color: #5a9d7c;
     cursor: pointer;
     border-radius: 5px;
     min-width: 15rem;
     padding: 8px;
     margin:10px;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.background-video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.content-container {
+    position: relative;
+    z-index: 1;
+    /* Add any additional styles for the content container */
 }
