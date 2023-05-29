@@ -69,7 +69,7 @@ function KanbanApp() {
                 removeCard={removeCard}
                 updateCard={updateCard}
             >
-              <h3>To-do</h3>
+              <h2>To-do</h2>
             </Board>
             <Board
                 key={boards[1]?.id}
@@ -78,7 +78,7 @@ function KanbanApp() {
                 removeCard={removeCard}
                 updateCard={updateCard}
             >
-              <h3>In progress</h3>
+              <h2>In progress</h2>
             </Board>
             <Board
                 key={boards[2]?.id}
@@ -87,7 +87,7 @@ function KanbanApp() {
                 removeCard={removeCard}
                 updateCard={updateCard}
             >
-              <h3>Completed</h3>
+              <h2>Completed</h2>
             </Board>
           </div>
         </div>

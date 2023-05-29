@@ -67,3 +67,26 @@
 }
 
 
+.back_button{
+    position: absolute;
+    top: 1px;
+    right: 15px;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    color: #000;
+    background: none;
+
+}
+
+.project_title{
+    height:40px;
+    position: absolute;
+    padding:2rem;
+    width: 18rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+
+}

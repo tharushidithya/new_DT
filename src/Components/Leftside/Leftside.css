@@ -4,26 +4,30 @@
 
 
 .progress{
-    width: 15rem;
-    height: 18rem;
-    padding-top: 2rem;
-    background-color: var(--glass);
-    margin:0;
+    width: 18rem;
+    height: 15rem;
+    padding: 1rem;
+    background-color: whitesmoke;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 
 }
 
 .cost{
-    width: 15rem;
+    width: 18rem;
     height: 15rem;
     padding-top:3rem;
     padding-right:1rem;
-    background-color: var(--glass);
+    background-color: whitesmoke;
     align-items: center;
     margin:0;
+
 }
 
-.title{
+.P_title{
     font-size: 1.5rem;
     font-weight: bold;
     display: flex;
@@ -33,24 +37,24 @@
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
     color: #ffffff;
-    width:15rem;
+    width:18rem;
+    margin-top:5rem;
 
+    top: 50px;
+    left:30px;
 }
 
-.project-title{
-
-    padding:1rem;
+.C_title{
+    font-size: 1.5rem;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    height:2.5rem;
-    font-size: 30px;
-    font-weight: bold;
-    color: #000000;
-    margin-bottom:0.8rem;
-    margin-top:0.8rem;
-    width:15rem;
+    background-color: #000000;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    color: #ffffff;
+    width:18rem;
 
 
 }
-

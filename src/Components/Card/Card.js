@@ -41,13 +41,7 @@ function Card(props) {
                 onClick={() => setShowModal(true)}
             >
                 <div className="card_top">
-                    <div className="card_top_labels">
-                        {labels?.map((item, index) => (
-                            <label key={index} style={{ backgroundColor: item.color }}>
-                                {item.text}
-                            </label>
-                        ))}
-                    </div>
+                    <div className="card_title">{title}</div>
                     <div
                         className="card_top_more"
                         onClick={(event) => {
@@ -68,7 +62,7 @@ function Card(props) {
                         )}
                     </div>
                 </div>
-                <div className="card_title">{title}</div>
+
                 {kpi && (
                     <div className="card_info">
                         <span className="card_info_label">KPI:</span>

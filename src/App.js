@@ -1,23 +1,39 @@
 // App.js
 import React, { useState } from "react";
 import './App.css';
-import Landing_Page from "./Landing_Page.js";
+import LandingPage from "./Landing_Page.js";
 import Sub_Project from "./Sub_Project.js";
 
 function App() {
-    const [showSubProject, setShowSubProject] = useState(false);
+    const [subProjects, setSubProjects] = useState([]);
+    const [activeSubProject, setActiveSubProject] = useState(null);
 
-    const handleSubProjectButtonClick = () => {
-        setShowSubProject(true);
+    const handleSubProjectClick = (subProjectData) => {
+        const newSubProject = {
+            id: subProjects.length + 1,
+            data: subProjectData
+        };
+        setSubProjects([...subProjects, newSubProject]);
+    };
+
+    const handleSubProjectButtonClick = (subProjectId) => {
+        setActiveSubProject(subProjectId);
     };
 
     return (
         <div className="App">
             <div className="AppGlass">
-                {showSubProject ? (
-                    <Sub_Project />
+                {activeSubProject !== null ? (
+                    <Sub_Project
+                        subProject={subProjects.find(subProject => subProject.id === activeSubProject)}
+                        onBackButtonClick={() => setActiveSubProject(null)}
+                    />
                 ) : (
-                    <Landing_Page onSubProjectButtonClick={handleSubProjectButtonClick} />
+                    <LandingPage
+                        onSubProjectClick={handleSubProjectClick}
+                        subProjects={subProjects}
+                        onSubProjectButtonClick={handleSubProjectButtonClick}
+                    />
                 )}
             </div>
         </div>
