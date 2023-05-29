@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CheckSquare, Clock, MoreHorizontal } from "react-feather";
+import { Clock, MoreHorizontal } from "react-feather";
 
 import Dropdown from "../Dropdown/Dropdown.js";
 import CardInfo from "./CardInfo/CardInfo.js";
@@ -102,14 +102,14 @@ function Card(props) {
 
                     <div className="card_dates">
                         {endDate && (
-                            <p className="card_footer_item">
+                            <p className="card_footer_item" >
                                 <h7>End date: </h7>
                                 <Clock className="card_footer_icon" />
                                 {formatDate(endDate)}
                             </p>
                         )}
                         {actualEndDate && (
-                            <p className="card_footer_item">
+                            <p className="card_footer_item" style={{ display: "flex"}}>
                                 <h7>Actual End date: </h7>
                                 <Clock className="card_footer_icon" />
                                 {formatDate(actualEndDate)}

@@ -106,23 +106,22 @@ function CardInfo(props) {
                     />
                 </div>
 
-                <div className="cardinfo_box">
+                <div className="cardinfo_inline_box">
                     <div className="cardinfo_box_title">
                         <List />
                         <p>Description</p>
                     </div>
-                    <Editable
-                        defaultValue={values.desc}
-                        text={values.desc || "Add a Description"}
+                    <input
+                        type="text"
+                        value={values.desc}
+                        onChange={(e) => setValues({ ...values, desc: e.target.value })}
                         placeholder="Enter description"
-                        onSubmit={updateDesc}
                     />
                 </div>
 
 
-                {/* KPI text box */}
-                <div >
-                    <div className="cardinfo_box_title" style={{paddingRight:'2rem' }}>
+                <div className="cardinfo_inline_box" style={{paddingRight:'2rem', width:'18rem'}}>
+                    <div className="cardinfo_box_title">
                         <p>Budget</p>
                     </div>
                     <input
@@ -133,9 +132,7 @@ function CardInfo(props) {
                     />
                 </div>
 
-
-                {/* Budget text box */}
-                <div className="cardinfo_inline_box" style={{paddingRight:'2rem' }}>
+                <div className="cardinfo_inline_box" style={{paddingRight:'2rem', width:'18rem' }}>
                     <div className="cardinfo_box_title">
                         <p>KPI</p>
                     </div>
@@ -149,8 +146,7 @@ function CardInfo(props) {
 
 
                 <div className="cardinfo_inline_boxes">
-                    {/* Weight text box */}
-                    <div className="cardinfo_inline_box" style={{paddingRight:'2rem' }}>
+                    <div className="cardinfo_inline_box">
                         <div className="cardinfo_box_title">
                             <p>Weight</p>
                         </div>
@@ -163,7 +159,7 @@ function CardInfo(props) {
                     </div>
 
 
-                    <div className="cardinfo_inline_box">
+                    <div className="cardinfo_inline_box" >
                         <div className="cardinfo_box_title">
                             <p>Actual Weight</p>
                         </div>
@@ -180,7 +176,7 @@ function CardInfo(props) {
 
 
                 <div className="card_dates" >
-                    <div className="cardinfo_box">
+                    <div className="cardinfo_box" style={{marginRight:'4rem' }}>
                         <div className="cardinfo_box_title">
                             <Calendar />
                             <p>Start Date</p>
@@ -195,7 +191,7 @@ function CardInfo(props) {
 
                     </div>
 
-                    <div className="cardinfo_box">
+                    <div className="cardinfo_box" style={{marginRight:'4rem' }}>
                         <div className="cardinfo_box_title">
                             <Calendar />
                             <p>Actual Start Date</p>
@@ -208,7 +204,7 @@ function CardInfo(props) {
                         />
                     </div>
 
-                    <div className="cardinfo_box">
+                    <div className="cardinfo_box" style={{marginRight:'4rem' }}>
                         <div className="cardinfo_box_title">
                             <Calendar />
                             <p>End Date</p>
@@ -222,7 +218,7 @@ function CardInfo(props) {
                     </div>
 
 
-                    <div className="cardinfo_box">
+                    <div className="cardinfo_box" style={{marginRight:'4rem' }}>
                         <div className="cardinfo_box_title">
                             <Calendar />
                             <p>Actual End Date</p>
