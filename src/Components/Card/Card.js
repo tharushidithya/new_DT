@@ -10,7 +10,7 @@ function Card(props) {
     const [showDropdown, setShowDropdown] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
-    const { id, title, startDate, tasks, labels, kpi, budget, weight,endDate } = props.card;
+    const { id, title, startDate, tasks, kpi, budget, weight,endDate, actualStartDate,actualEndDate } = props.card;
 
     const formatDate = (value) => {
         if (!value) return "";
@@ -83,12 +83,19 @@ function Card(props) {
                 )}
                 <div >
 
-                    <div className="card_dates" style={{ marginBottom:'10px'}} >
+                    <div className="card_dates">
                         {startDate && (
                             <p className="card_footer_item">
-                                <p>Start date: </p>
+                                <h7>Start date: </h7>
                                 <Clock className="card_footer_icon" />
                                 {formatDate(startDate)}
+                            </p>
+                        )}
+                        {actualStartDate && (
+                            <p className="card_footer_item">
+                                <h7>Actual Start date: </h7>
+                                <Clock className="card_footer_icon" />
+                                {formatDate(actualStartDate)}
                             </p>
                         )}
                     </div>
@@ -96,23 +103,32 @@ function Card(props) {
                     <div className="card_dates">
                         {endDate && (
                             <p className="card_footer_item">
-                                <p>End date: </p>
+                                <h7>End date: </h7>
                                 <Clock className="card_footer_icon" />
                                 {formatDate(endDate)}
+                            </p>
+                        )}
+                        {actualEndDate && (
+                            <p className="card_footer_item">
+                                <h7>Actual End date: </h7>
+                                <Clock className="card_footer_icon" />
+                                {formatDate(actualEndDate)}
                             </p>
                         )}
                     </div>
 
 
+
                     {tasks && tasks.length > 0 && (
-                        <>
-                            <div style={{ marginTop: "1rem" }}>Sub tasks: </div>
-                            <p className="card_footer_item" style={{ marginTop: "12px" }}>
-                                <CheckSquare className="card_footer_icon" />
-                                {tasks.filter((item) => item.completed).length}/{tasks.length}
+                        <div style={{ display: "flex", alignItems: "center", marginTop: "5px", fontSize: '12px', fontWeight: 'bold' }}>
+                            <span style={{ marginRight: "4px" }}>Sub tasks:</span>
+                            <p className="card_footer_item" style={{ fontSize: '10px', background:'none'}} >
+                                {tasks.length}
                             </p>
-                        </>
+                        </div>
                     )}
+
+
                 </div>
             </div>
         </>
