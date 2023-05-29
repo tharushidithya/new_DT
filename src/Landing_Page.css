@@ -3,10 +3,21 @@
 .landing-page {
     display: flex;
     flex-direction: column;
-
     height: 100vh;
-    width: 250vh;
-    background-color: #f2f2f2;
+    width: 100%;
+    background: linear-gradient(to bottom, #f1f1f1, #ffffff);
+    background-size: cover;
+    background-position: center;
+    overflow: auto;
+}
+
+.home-bannerImage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .h1-container {
@@ -14,22 +25,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 h1 {
     font-size: 36px;
     font-weight: bold;
-    color: #333333;
+    color: #ffffff;
 }
 
 h3 {
     font-size: 30px;
     margin: 50px;
-    color: #666666;
+    color: #88d1ff;
 }
-
-
 
 button:focus {
     outline: none;
@@ -39,20 +47,17 @@ button:active {
     background-color: #004080;
 }
 
-/* Add additional styles as needed */
-
-.add-project-button{
-    padding: 10px 20px;
-    margin:80px;
+.add-project-button {
+    padding: 8px;
+    margin:10px;
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff;
-    background-color: #7c6af1;
+    color: #000000;
+    background-color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     width: 15rem;
-
 }
 
 .sub-projects-container {
@@ -64,14 +69,24 @@ button:active {
     margin-right: 10px;
 }
 
+.sub-projects-list {
+    list-style-type: none;
+    padding: 0;
+}
 
-.sub-project-button{
-    font-size: 25px;
-    margin-left:50px;
-    gap:10px;
+.sub-project-item {
+    margin-bottom: 10px;
+}
+
+.sub-project-button {
+    font-size: 20px;
     font-weight: bold;
-    color: black;
-    background:none;
-    border: none;
+    color: #ffffff;
+    background: none;
+    border-width: thin;
     cursor: pointer;
+    border-radius: 5px;
+    min-width: 15rem;
+    padding: 8px;
+    margin:10px;
 }
