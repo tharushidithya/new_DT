@@ -35,9 +35,9 @@ function Card(props) {
             )}
             <div
                 className="card"
-                draggable
-                onDragEnd={() => props.dragEnded(props.boardId, id)}
-                onDragEnter={() => props.dragEntered(props.boardId, id)}
+                // draggable
+                // onDragEnd={() => props.dragEnded(props.boardId, id)}
+                // onDragEnter={() => props.dragEntered(props.boardId, id)}
                 onClick={() => setShowModal(true)}
             >
                 <div className="card_top">
