@@ -266,15 +266,16 @@ function CardInfo(props) {
                                             onChange={(event) =>
                                                 updateTask(item.id, "text", event.target.value)
                                             }
+                                            style={{ width: 'fit-content' }}
                                         />
                                     </td>
                                     <td>
-                                        <input
-                                            type="text"
+                                        <textarea
                                             value={item.description}
                                             onChange={(event) =>
                                                 updateTask(item.id, "description", event.target.value)
                                             }
+                                            style={{ width: 'fit-content' }}
                                         />
                                     </td>
                                     <td>
@@ -285,6 +286,7 @@ function CardInfo(props) {
                                                 onChange={(event) =>
                                                     updateTask(item.id, "plannedStartDate", event.target.value)
                                                 }
+
                                             />
                                         </div>
                                     </td>
@@ -327,6 +329,7 @@ function CardInfo(props) {
                                             onChange={(event) =>
                                                 updateTask(item.id, "status", event.target.value)
                                             }
+                                            style={{ width: 'fit-content' }}
                                         >
                                             <option value="todo">To Do</option>
                                             <option value="inprogress">In Progress</option>
@@ -334,21 +337,21 @@ function CardInfo(props) {
                                         </select>
                                     </td>
                                     <td>
-                                        <input
-                                            type="text"
+                                        <textarea
                                             value={item.remark}
                                             onChange={(event) =>
                                                 updateTask(item.id, "remark", event.target.value)
                                             }
+                                            style={{ width: 'fit-content' }}
                                         />
                                     </td>
                                     <td>
-                                        <input
-                                            type="text"
+                                        <textarea
                                             value={item.membersAssigned}
                                             onChange={(event) =>
                                                 updateTask(item.id, "membersAssigned", event.target.value)
                                             }
+                                            style={{ width: 'fit-content' }}
                                         />
                                     </td>
                                 </tr>

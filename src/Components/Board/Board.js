@@ -25,8 +25,8 @@ function Board(props) {
                         card={item}
                         boardId={props.board.id}
                         removeCard={props.removeCard}
-                        dragEntered={props.dragEntered}
-                        dragEnded={props.dragEnded}
+                        // dragEntered={props.dragEntered}
+                        // dragEnded={props.dragEnded}
                         updateCard={props.updateCard}
                     />
                 ))}

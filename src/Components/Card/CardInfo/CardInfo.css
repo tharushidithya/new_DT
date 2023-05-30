@@ -12,6 +12,7 @@
 padding-right: 10px;
   border-radius: 6px;
   width: 700px;
+  margin-top: 2rem;
 }
 
 .cardinfo_box {
@@ -136,6 +137,7 @@ padding-right: 10px;
 .subtask_table {
   width: 195%;
   border-collapse: collapse;
+  margin-top: 1rem;
 
 }
 
@@ -149,6 +151,7 @@ padding-right: 10px;
   background-color: #b5cad9;
   font-weight: bold;
   padding:10px;
+
 }
 
 .subtask_table input[type="text"],
