@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 10);
 }
 
 .h1-container {
@@ -57,8 +57,21 @@ button:active {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 12rem;
+}
+
+.sub-project-title-input {
+    padding: 8px;
+    margin:10px;
+    font-size: 18px;
+    color: #000000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     width: 15rem;
 }
+
 
 .sub-projects-container {
     display: flex;

@@ -7,12 +7,11 @@ function Sub_Project({ subProject, onBackButtonClick }) {
     return (
         <div className="Sub_Project">
             <div className="container">
-                <h2 className="project_title">Sub Project {subProject.id}</h2>
+                <h2 className="project_title"> {subProject.id + ' ' + subProject.title}</h2>
                 <button className="back_button" onClick={onBackButtonClick}><span>&#8680;</span></button>
                 {/* Render the subproject page content */}
-                        <Leftside/>
-                        <KanbanApp/>
-
+                <Leftside />
+                <KanbanApp />
             </div>
         </div>
     );

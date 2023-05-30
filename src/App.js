@@ -11,10 +11,11 @@ function App() {
     const handleSubProjectClick = (subProjectData) => {
         const newSubProject = {
             id: subProjects.length + 1,
-            data: subProjectData
+            title: subProjectData.title // Store the sub project title
         };
         setSubProjects([...subProjects, newSubProject]);
     };
+
 
     const handleSubProjectButtonClick = (subProjectId) => {
         setActiveSubProject(subProjectId);
