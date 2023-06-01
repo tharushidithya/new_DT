@@ -13,9 +13,9 @@ function Board(props) {
     return (
         <div className="board">
             <div className="board_header">
-                <p className="board_header_title">
-                    {props.board?.title}
-                </p>
+                {/*<p className="board_header_title">*/}
+                {/*    {props.board?.title}*/}
+                {/*</p>*/}
                 {props.children}
             </div>
             <div className="board_cards custom-scroll">

@@ -29,7 +29,7 @@ const LandingPage = ({ onSubProjectClick, subProjects, onSubProjectButtonClick }
             <div className="content-container">
                 <div className="home-bannerImage-container">
                     <div className="video-container">
-                        {/*<video src={video} autoPlay loop muted className="background-video" />*/}
+                        <video src={video} autoPlay loop muted className="background-video" />
                     </div>
                 </div>
                 <div className="content-container">
@@ -56,7 +56,7 @@ const LandingPage = ({ onSubProjectClick, subProjects, onSubProjectButtonClick }
                                     className="sub-project-button"
                                     onClick={() => onSubProjectButtonClick(subProject.id)}
                                 >
-                                    {subProject.id + ' : ' + subProject.title}
+                                    {subProject.id + '  : ' + subProject.title}
                                 </button>
                             </li>
                         ))}
