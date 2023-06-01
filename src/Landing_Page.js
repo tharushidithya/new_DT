@@ -4,18 +4,24 @@ import './Landing_Page.css';
 
 const LandingPage = ({ onSubProjectClick, subProjects, onSubProjectButtonClick }) => {
     const [subProjectData, setSubProjectData] = useState('');
+    const [isTitleEntered, setIsTitleEntered] = useState(false);
 
     const handleSubProjectDataChange = (e) => {
-        setSubProjectData(e.target.value);
+        const inputValue = e.target.value;
+        setSubProjectData(inputValue);
+        setIsTitleEntered(inputValue.trim() !== '');
     };
 
     const handleSubProjectClick = () => {
-        const subProject = {
-            id: subProjects.length + 1, // Generate a unique ID for the sub project
-            title: subProjectData
-        };
-        onSubProjectClick(subProject);
-        setSubProjectData('');
+        if (isTitleEntered) {
+            const subProject = {
+                id: subProjects.length + 1,
+                title: subProjectData
+            };
+            onSubProjectClick(subProject);
+            setSubProjectData('');
+            setIsTitleEntered(false);
+        }
     };
 
     return (
@@ -23,7 +29,7 @@ const LandingPage = ({ onSubProjectClick, subProjects, onSubProjectButtonClick }
             <div className="content-container">
                 <div className="home-bannerImage-container">
                     <div className="video-container">
-                        <video src={video} autoPlay loop muted className="background-video" />
+                        {/*<video src={video} autoPlay loop muted className="background-video" />*/}
                     </div>
                 </div>
                 <div className="content-container">
@@ -39,7 +45,7 @@ const LandingPage = ({ onSubProjectClick, subProjects, onSubProjectButtonClick }
                             placeholder="Enter project title"
                             className="sub-project-title-input"
                         />
-                        <button className="add-project-button" onClick={handleSubProjectClick}>
+                        <button className="add-project-button" onClick={handleSubProjectClick} disabled={!isTitleEntered}>
                             Create project
                         </button>
                     </div>
