@@ -1,0 +1,42 @@
+.Project {
+    position: absolute;
+    margin-top: 4rem;
+    font-size: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    background-color: #dbe0e4;
+    width: 18rem;
+
+}
+
+.project_inline_box {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.project_inline_box p {
+    padding-top: 20px;
+    margin-right: 15px;
+}
+
+.project_inline_box input,
+.project_inline_box select {
+    margin-top: 20px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.project_inline_box input {
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.project_inline_box.budget input {
+    width: 80px;
+}

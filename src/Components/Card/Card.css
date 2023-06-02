@@ -90,7 +90,8 @@
 .card_info_value {
   border-radius: 10%;
   height: 12px;
-  width: 10px;
+  width: fit-content;
+  padding:3px;
   background-color: #ffffff;
   display: flex;
   align-items: center;

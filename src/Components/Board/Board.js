@@ -31,7 +31,7 @@ function Board(props) {
                     />
                 ))}
                 <Editable
-                    text="+ Add Card"
+                    text="+ Add Task"
                     placeholder="Enter Card Title"
                     displayClass="board_add-card"
                     editClass="board_add-card_edit"

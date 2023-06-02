@@ -6,14 +6,15 @@
 
 
 .progress {
+
     width: 18rem;
-    height: 18rem;
+    height: 10rem;
     background-color: whitesmoke;
-    padding:1rem;
+    padding:2rem;
     display: block;
     justify-content: center;
     align-items: center;
-    margin: auto; /* Add this line to center the container horizontally */
+    margin:auto;
 }
 
 /* Remove the top and left positioning properties in .P_title */
@@ -28,14 +29,14 @@
     padding-bottom: 0.4rem;
     color: #ffffff;
     width: 18rem;
-    margin-top: 4rem;
+    margin-top: 15rem;
 }
 
 
 
 .cost{
     width: 18rem;
-    height: 15rem;
+    height: 10rem;
     padding-top:3rem;
     padding-right:1rem;
     background-color: whitesmoke;
