@@ -7,7 +7,6 @@ function Project_title(props) {
         budgetUnit: "$", // Default budget unit
     });
 
-
     useEffect(() => {
         // Get values from local storage if available
         const storedValues = localStorage.getItem("projectValues");
@@ -26,9 +25,9 @@ function Project_title(props) {
     };
 
     return (
-        <div className="Project">
+        <div className="Project scrollable-project">
             <div className="project_inline_box">
-                <p style={{ marginRight: "32px", fontSize: "15px" }}>scope</p>
+                <p style={{ marginRight: "32px", fontSize: "15px" }}>Scope</p>
                 <input
                     type="text"
                     value={values.desc}
@@ -38,7 +37,7 @@ function Project_title(props) {
             </div>
 
             <div className="project_inline_box">
-                <p style={{ marginRight: "8px", fontSize: "15px" }}>objectives</p>
+                <p style={{ marginRight: "8px", fontSize: "15px" }}>Objectives</p>
                 <input
                     type="text"
                     value={values.objectives}
@@ -48,7 +47,7 @@ function Project_title(props) {
             </div>
 
             <div className="project_inline_box">
-                <p style={{ marginRight: "8px", fontSize: "15px" }}>drive links</p>
+                <p style={{ marginRight: "8px", fontSize: "15px" }}>Drive links</p>
                 <input
                     type="text"
                     value={values.driveLink}
@@ -58,7 +57,7 @@ function Project_title(props) {
             </div>
 
             <div className="project_inline_box">
-                <p style={{ marginRight: "20px", fontSize: "15px" }}>sponsor</p>
+                <p style={{ marginRight: "20px", fontSize: "15px" }}>Sponsor</p>
                 <input
                     type="text"
                     value={values.sponsor}
@@ -68,19 +67,19 @@ function Project_title(props) {
             </div>
 
             <div className="project_inline_box budget">
-                <p style={{ marginRight: "29px",fontSize: "15px" }}>budget</p>
+                <p style={{ marginRight: "29px", fontSize: "15px" }}>Budget</p>
                 <div>
                     <input
                         type="number"
                         value={values.budget}
                         onChange={(e) => setValues({ ...values, budget: e.target.value })}
                         placeholder="Enter budget"
-                        style={{ width:'100px' }}
+                        style={{ width: "90px" }}
                     />
                     <select
                         value={values.budgetUnit}
                         onChange={handleBudgetUnitChange}
-                        style={{ marginLeft: "10px", width:'80px' }} // Added margin-left for spacing
+                        style={{ marginLeft: "10px", width: "70px" }} // Added margin-left for spacing
                     >
                         <option value="$">$</option>
                         <option value="€">€</option>

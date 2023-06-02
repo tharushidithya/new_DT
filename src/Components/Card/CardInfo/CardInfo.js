@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Calendar, CheckSquare, List, Tag, Trash, Type, X } from "react-feather";
 import Modal from "../../Modal/Modal.js";
 import Editable from "../../Editabled/Editable.js";
-import Progress from "../../Progress/Progress.js";
+
+
 import "./CardInfo.css";
 
 
@@ -28,8 +29,8 @@ function CardInfo(props) {
     const [kpiDesc, setKpiDesc] = useState("");
     const [budget, setBudget] = useState("");
     const [cic, setCIC] = useState("");
-    const [weight, setWeight] = useState("");
-    const [achievedWeight, setAchievedWeight] = useState("");
+    const [weight, setWeight] = useState(values.weight || "");
+    const [achievedWeight, setAchievedWeight] = useState(values.achievedWeight || "");
     const [result, setResult] = useState(0); // Store the calculated result
 
 
@@ -103,9 +104,14 @@ function CardInfo(props) {
     }, [values]);
 
     useEffect(() => {
-        const calculatedResult = (weight * achievedWeight) / 100;
-        setResult(calculatedResult);
+        const calculatedResult = (parseInt(weight) * parseInt(achievedWeight)) / 100;
+        setValues((prevValues) => ({
+            ...prevValues,
+            result: calculatedResult,
+        }));
     }, [weight, achievedWeight]);
+
+
 
 
     return (
