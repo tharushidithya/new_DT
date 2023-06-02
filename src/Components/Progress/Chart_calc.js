@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import CardInfo from "../Card/CardInfo/CardInfo.js"; // Import the CardInfo component
-import Progress from "./Progress.js"; // Import the Progress component
+import CardInfo from "../Card/CardInfo/CardInfo.js";
+import Progress from "./Progress.js";
 
 function Chart_calc() {
-
-    const [setSumOfResults] = useState(0);
-
-
     const [cards, setCards] = useState([]);
 
     const handleAddCard = () => {
@@ -23,15 +19,10 @@ function Chart_calc() {
         const updatedCards = [...cards];
         updatedCards[index] = updatedCard;
         setCards(updatedCards);
-
-        const newSumOfResults = updatedCards.reduce((total, card) => total + card.result, 0);
-        setSumOfResults(newSumOfResults);
     };
 
-
-
     const sumOfResults = cards.reduce(
-        (total, card) => total + card.result,
+        (total, card) => total + parseInt(card.result),
         0
     );
 
@@ -45,7 +36,7 @@ function Chart_calc() {
                     onClose={() => handleRemoveCard(index)}
                 />
             ))}
-            <Progress result={sumOfResults} /> {/* Render the Progress component */}
+            <Progress cards={cards} sumOfResults={sumOfResults} />
         </div>
     );
 }

@@ -3,13 +3,13 @@ import "./Leftside.css";
 import Progress from '../Progress/Progress.js';
 import Cost from '../Cost/Cost.js';
 
-const Leftside = () => {
+const Leftside = ({ cards, sumOfResults }) => {
     return (
         <div>
             <div>
                 <div className="P_title">Progress</div>
                 <div className="progress">
-                    <Progress />
+                    <Progress cards={cards} sumOfResults={sumOfResults} />
                 </div>
             </div>
             <div>

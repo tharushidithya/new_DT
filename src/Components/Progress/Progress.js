@@ -1,13 +1,13 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 
-const Progress = ({ result }) => {
+const Progress = ({ cards, sumOfResults }) => {
     const data = {
         labels: ["Weighted", "Remaining"],
         datasets: [
             {
                 label: "Progress",
-                data: [result, 100 - result],
+                data: [sumOfResults, 100 - sumOfResults],
                 backgroundColor: ["rgb(253, 142, 142)", "rgb(220, 220, 220)"],
                 hoverOffset: 4,
             },

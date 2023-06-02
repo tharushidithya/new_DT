@@ -10,10 +10,9 @@
     width: 18rem;
     height: 15rem;
     background-color: whitesmoke;
-    padding:2rem;
-    display: block;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+
+
 }
 
 /* Remove the top and left positioning properties in .P_title */
