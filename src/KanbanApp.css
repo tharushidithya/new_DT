@@ -37,7 +37,7 @@
 }
 
 .app_boards {
-  height: 100%;
+  height: fit-content;
   width: fit-content;
   padding: 10px 30px;
   display: flex;

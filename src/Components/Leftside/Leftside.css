@@ -8,13 +8,12 @@
 .progress {
 
     width: 18rem;
-    height: 10rem;
+    height: 15rem;
     background-color: whitesmoke;
     padding:2rem;
     display: block;
     justify-content: center;
     align-items: center;
-    margin:auto;
 }
 
 /* Remove the top and left positioning properties in .P_title */
@@ -29,7 +28,7 @@
     padding-bottom: 0.4rem;
     color: #ffffff;
     width: 18rem;
-    margin-top: 15rem;
+    margin-top: 21rem;
 }
 
 

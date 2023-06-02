@@ -7,7 +7,7 @@ import Project_title from './Components/Project_title.js';
 function Sub_Project({subProject,  onBackButtonClick }) {
     return (
         <div className="Sub_Project">
-            <div className="container">
+            <div className="container scrollable">
                 <h2 className="project_title"> {subProject.id + ' ' + subProject.title}</h2>
                 <Project_title />
                 <button className="back_button" onClick={onBackButtonClick}><span>&#8680;</span></button>

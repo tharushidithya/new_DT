@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Calendar, CheckSquare, List, Tag, Trash, Type, X } from "react-feather";
 import Modal from "../../Modal/Modal.js";
 import Editable from "../../Editabled/Editable.js";
+import Progress from "../../Progress/Progress.js";
 import "./CardInfo.css";
 
 
@@ -28,7 +29,8 @@ function CardInfo(props) {
     const [budget, setBudget] = useState("");
     const [cic, setCIC] = useState("");
     const [weight, setWeight] = useState("");
-    const [achievedweight, setAchievedWeight] = useState("");
+    const [achievedWeight, setAchievedWeight] = useState("");
+    const [result, setResult] = useState(0); // Store the calculated result
 
 
     const handleKpiChange = (event) => {
@@ -99,6 +101,12 @@ function CardInfo(props) {
     useEffect(() => {
         if (props.updateCard) props.updateCard(props.boardId, values.id, values);
     }, [values]);
+
+    useEffect(() => {
+        const calculatedResult = (weight * achievedWeight) / 100;
+        setResult(calculatedResult);
+    }, [weight, achievedWeight]);
+
 
     return (
         <Modal onClose={props.onClose}>
@@ -245,7 +253,6 @@ function CardInfo(props) {
                         />
                     </div>
                 </div>
-
 
 
                 <div className="card_dates" >

@@ -91,3 +91,12 @@
 
 
 }
+
+.container {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.scrollable {
+    max-height: 100%;
+}
