@@ -52,7 +52,9 @@ function CardInfo(props) {
 
     const handleWeightChange = (event) => {
         setWeight(event.target.value);
-        setValues({ ...values, weight: event.target.value });
+        if (props.updateWeight) {
+            props.updateWeight(event.target.value); // Call the updateWeight function with the new weight value
+        }
     };
 
     const handleAchievedWeightChange = (event) => {
@@ -103,8 +105,8 @@ function CardInfo(props) {
 
 
     useEffect(() => {
-        if (props.updateCard) props.updateCard(props.boardId, values.id, values);
-    }, [values]);
+        if (props.updateCard) props.updateCard(props.boardId, values.id, values, weight);
+    }, [values, weight]);
 
     useEffect(() => {
         const calculatedResult = (parseInt(weight) * parseInt(achievedWeight)) / 100;

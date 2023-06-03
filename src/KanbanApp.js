@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import Work_D_Chart from "./Components/Work_D_Chart/Work_D_Chart.js";
 import Board from "./Components/Board/Board.js";
+import { getBoardWeightSum } from "./Components/Work_D_Chart/helpers.js";
 
 import "./KanbanApp.css";
 import Editable from "./Components/Editabled/Editable.js";
@@ -54,6 +55,25 @@ function KanbanApp() {
     setBoards(tempBoards);
   };
 
+  const [weight, setWeight] = useState("");
+
+  const updateWeight = (value) => {
+    setWeight(value);
+  };
+
+  const getBoardWeightSum = (board, weight) => {
+    let sum = 0;
+    for (const card of board.cards) {
+      sum += parseInt(card[weight]) || 0;
+    }
+    return sum;
+  };
+  const boardWeights = boards.map((board) => ({
+    id: board.id,
+    weightSum: getBoardWeightSum(board),
+  }));
+
+
   useEffect(() => {
     localStorage.setItem("prac-kanban", JSON.stringify(boards));
   }, [boards]);
@@ -68,6 +88,8 @@ function KanbanApp() {
                 addCard={addCardHandler}
                 removeCard={removeCard}
                 updateCard={updateCard}
+                weight={weight}
+                updateWeight={updateWeight}
             >
               <h2>To-do</h2>
             </Board>
@@ -77,6 +99,8 @@ function KanbanApp() {
                 addCard={addCardHandler}
                 removeCard={removeCard}
                 updateCard={updateCard}
+                weight={weight}
+                updateWeight={updateWeight}
             >
               <h2>In progress</h2>
             </Board>
@@ -86,9 +110,13 @@ function KanbanApp() {
                 addCard={addCardHandler}
                 removeCard={removeCard}
                 updateCard={updateCard}
+                weight={weight}
+                updateWeight={updateWeight}
             >
               <h2>Completed</h2>
             </Board>
+            <Work_D_Chart boardWeights={boardWeights} weight={weight} />
+
           </div>
         </div>
       </div>

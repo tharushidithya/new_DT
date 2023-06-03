@@ -12,15 +12,10 @@ function CardInfo(props) {
 
 
     const [weight, setWeight] = useState("");
-    const [achievedweight, setAchievedWeight] = useState("");
 
 
     const handleWeightChange = (event) => {
         setWeight(event.target.value);
-    };
-
-    const handleAchievedWeightChange = (event) => {
-        setAchievedWeight(event.target.value);
     };
 
 
@@ -52,24 +47,7 @@ function CardInfo(props) {
                             max={100}
                         />
                     </div>
-                    <div className="cardinfo_inline_box">
-                        <div className="cardinfo_box_title">
-                            <p>Achieved Weight (%)</p>
-                        </div>
-                        <input
-                            type="number"
-                            value={values.achievedWeight}
-                            onChange={(e) => {
-                                if (e.target.value <= 100) {
-                                    setValues({ ...values, achievedWeight: e.target.value })
-                                }
-                            }}
-                            placeholder="Enter achieved weight (max 100)"
-                            className="input_box"
-                            style={{ width: '300px' }}
-                            max={100}
-                        />
-                    </div>
+
                 </div>
             </div>
         </Modal>
@@ -77,3 +55,7 @@ function CardInfo(props) {
 }
 
 export default CardInfo;
+
+
+
+

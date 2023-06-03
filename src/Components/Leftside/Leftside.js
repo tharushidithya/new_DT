@@ -3,7 +3,7 @@ import "./Leftside.css";
 import Progress from "../Progress/Progress.js";
 import Cost from "../Cost/Cost.js";
 import Chart_calc from "../Progress/Chart_calc.js";
-import Work_D_Chart from '../Work_D_Chart/Work_D_Chart.js';
+import Work_D_Chart from "../Work_D_Chart/Work_D_Chart.js";
 
 const Leftside = ({ cards }) => {
     const sumOfResults = cards.reduce(
