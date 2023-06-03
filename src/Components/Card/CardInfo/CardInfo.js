@@ -52,9 +52,7 @@ function CardInfo(props) {
 
     const handleWeightChange = (event) => {
         setWeight(event.target.value);
-        if (props.updateWeight) {
-            props.updateWeight(event.target.value); // Call the updateWeight function with the new weight value
-        }
+        setValues({ ...values, weight: event.target.value });
     };
 
     const handleAchievedWeightChange = (event) => {

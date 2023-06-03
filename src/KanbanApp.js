@@ -61,13 +61,14 @@ function KanbanApp() {
     setWeight(value);
   };
 
-  const getBoardWeightSum = (board, weight) => {
+  const getBoardWeightSum = (board) => {
     let sum = 0;
     for (const card of board.cards) {
-      sum += parseInt(card[weight]) || 0;
+      sum += parseInt(card.weight) || 0;
     }
     return sum;
   };
+
   const boardWeights = boards.map((board) => ({
     id: board.id,
     weightSum: getBoardWeightSum(board),
