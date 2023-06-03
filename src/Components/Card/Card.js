@@ -73,9 +73,9 @@ function Card(props) {
 
 
                 <div className="card_info">
-                    <div className="card_info_item">
+                    {budget && (<div className="card_info_item">
                         <span className="card_info_label">Budget:{budget && <span className="card_info_value" style={{marginLeft:'5px'}}>{budget}</span>}</span>
-                    </div>
+                    </div>)}
                     {cic && (<div className="card_info_item" >
                         <span className="card_info_label" style={{marginLeft:'35px'}}>Current incurred cost: {cic && <span className="card_info_value" style={{marginLeft:'5px'}}>{cic}</span>}</span>
                     </div>)}
@@ -84,9 +84,9 @@ function Card(props) {
 
 
                 <div className="card_info">
-                    <div className="card_info_item">
+                    {weight && (<div className="card_info_item">
                         <span className="card_info_label">Weight:{weight && <span className="card_info_value" style={{marginLeft:'5px'}}>{weight}</span>}</span>
-                    </div>
+                    </div>)}
                     {achievedWeight && (<div className="card_info_item" >
                         <span className="card_info_label" style={{marginLeft:'30px'}}>Achieved Weight: {achievedWeight && <span className="card_info_value" style={{marginLeft:'5px'}}>{achievedWeight}</span>}</span>
                     </div>)}
