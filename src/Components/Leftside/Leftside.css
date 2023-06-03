@@ -5,45 +5,46 @@
 
 
 
-.progress {
-
+.body {
     width: 18rem;
     height: 15rem;
     background-color: whitesmoke;
     display: flex;
-
+    justify-content: center;
+    padding:5px;
 
 }
 
 /* Remove the top and left positioning properties in .P_title */
-.P_title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000000;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-    color: #ffffff;
-    width: 18rem;
-    margin-top: 21rem;
-}
+/*.P_title {*/
+/*    font-size: 1.2rem;*/
+/*    font-weight: bold;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background-color: #000000;*/
+/*    padding-top: 0.4rem;*/
+/*    padding-bottom: 0.4rem;*/
+/*    color: #ffffff;*/
+/*    width: 18rem;*/
+/*    margin-top: 10px;*/
+
+/*}*/
 
 
 
-.cost{
-    width: 18rem;
-    height: 10rem;
-    padding-top:3rem;
-    padding-right:1rem;
-    background-color: whitesmoke;
-    align-items: center;
-    margin:0;
+/*.body{*/
+/*    width: 18rem;*/
+/*    height: 10rem;*/
+/*    padding-top:3rem;*/
+/*    padding-right:1rem;*/
+/*    background-color: whitesmoke;*/
+/*    align-items: center;*/
+/*    margin:0;*/
 
-}
+/*}*/
 
-.C_title{
+.title{
     font-size: 1.2rem;
     font-weight: bold;
     display: flex;
@@ -54,7 +55,32 @@
     padding-bottom: 0.4rem;
     color: #ffffff;
     width:18rem;
-    margin-top: 1rem;
+    margin-top: 10px;
 
 
 }
+
+
+/*.W_title{*/
+/*    font-size: 1.2rem;*/
+/*    font-weight: bold;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background-color: #000000;*/
+/*    padding-top: 0.4rem;*/
+/*    padding-bottom: 0.4rem;*/
+/*    color: #ffffff;*/
+/*    width:18rem;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+
+/*.W_distribution{*/
+/*    width: 18rem;*/
+/*    height: 15rem;*/
+/*    background-color: whitesmoke;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    padding:5px;*/
+/*}*/

@@ -14,9 +14,28 @@ const Progress = ({ cards, sumOfResults }) => {
         ],
     };
 
+    const options = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        let label = context.label || "";
+                        let value = context.raw;
+                        if (label) {
+                            label += ": ";
+                        }
+                        label += value + "%";
+                        return label;
+                    },
+                },
+            },
+        },
+    };
+    console.log("data:", data);
+
     return (
         <div>
-            <Doughnut data={data} />
+            <Doughnut data={data} options={options} />
         </div>
     );
 };

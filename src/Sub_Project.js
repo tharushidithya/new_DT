@@ -31,15 +31,21 @@ function Sub_Project({ subProject, onBackButtonClick }) {
     return (
         <div className="Sub_Project">
             <div className="container scrollable">
-                <h2 className="project_title">{subProject.id + ' ' + subProject.title}</h2>
-                <Project_title />
+
+                <div className="column-container">
+                    <h2 className="project_title">{subProject.id + ' ' + subProject.title}</h2>
+                    <Project_title />
+                    <Leftside cards={cards} sumOfResults={sumOfResults} />
+                </div>
                 <button className="back_button" onClick={onBackButtonClick}><span>&#8680;</span></button>
                 {/* Render the subproject page content */}
-                <Leftside cards={cards} sumOfResults={sumOfResults} />
                 <KanbanApp />
             </div>
         </div>
     );
+
+
+
 }
 
 export default Sub_Project;

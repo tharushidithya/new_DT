@@ -20,11 +20,15 @@ function Chart_calc() {
         updatedCards[index] = updatedCard;
         setCards(updatedCards);
     };
+    console.log("cards:", cards);
 
     const sumOfResults = cards.reduce(
         (total, card) => total + parseInt(card.result),
         0
     );
+    console.log("sumOfResults:", sumOfResults);
+
+
 
     return (
         <div>

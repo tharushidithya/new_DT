@@ -1,6 +1,6 @@
 .Project {
-    position: absolute;
-    margin-top: 4rem;
+    /*position: absolute;*/
+    margin-top: 1rem;
     font-size: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -8,8 +8,15 @@
     padding-bottom: 10px;
     background-color: #dbe0e4;
     width: 18rem;
-
+    flex-direction: column;
+    overflow-y: auto;
+    height: fit-content;
 }
+
+.scrollable-project {
+    overflow-y: auto;
+}
+
 
 .project_inline_box {
     display: flex;
@@ -41,7 +48,8 @@
     width: 80px;
 }
 
-/*.scrollable-project {*/
-/*    max-height: 200px; !* Adjust the height as per your requirement *!*/
-/*    overflow-y: auto;*/
-/*}*/
+
+.Project_title {
+    display: flex;
+    flex-direction: column;
+}
