@@ -1,6 +1,6 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-
+import './Progress.css';
 const Progress = ({ cards, sumOfResults }) => {
     const data = {
         labels: ["Weighted", "Remaining"],
@@ -34,7 +34,7 @@ const Progress = ({ cards, sumOfResults }) => {
     console.log("data:", data);
 
     return (
-        <div>
+        <div className="p-chart-container">
             <Doughnut data={data} options={options} />
         </div>
     );
