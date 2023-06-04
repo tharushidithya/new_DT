@@ -1,7 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import Chart from 'chart.js/auto';
-// import "./Cost.css";
+import "./Cost.css";
 
 const Cost = () => {
     const labels = ["Task Est. Budget", "Incurred Cost"];
@@ -11,7 +10,7 @@ const Cost = () => {
             {
                 label: "Cost",
                 borderColor: "rgb(0,0,0)",
-                data: [ 40, 45],
+                data: [ 50, 20],
                 backgroundColor: [
                     'rgb(157,250,208)',
                     'rgb(203,156,156)',
@@ -20,7 +19,7 @@ const Cost = () => {
             {
                 label: "Budget",
                 borderColor: "rgb(0,0,0)",
-                data: [50, 50, 50],
+                data: [80, 80],
                 type:'line',
                 backgroundColor: [
                     'rgb(197,201,204)',
@@ -31,7 +30,7 @@ const Cost = () => {
 
 
     return (
-        <div>
+        <div className="chart-container">
             <Bar data={data} />
         </div>
     );
