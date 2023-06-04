@@ -1,61 +1,61 @@
 import React, { useEffect, useState } from "react";
-import Modal from "../../Modal/Modal.js";
-import "./CardInfo.css";
+import "./Project_title.css";
 
-
-function CardInfo(props) {
-
-
+function Project_title(props) {
     const [values, setValues] = useState({
         ...props.card,
+        budget: 0,
+        budgetUnit: "$", // Default budget unit
     });
 
-
-    const [weight, setWeight] = useState("");
-
-
-    const handleWeightChange = (event) => {
-        setWeight(event.target.value);
-    };
-
-
+    useEffect(() => {
+        // Get values from local storage if available
+        const storedValues = localStorage.getItem("projectValues");
+        if (storedValues) {
+            setValues(JSON.parse(storedValues));
+        }
+    }, []);
 
     useEffect(() => {
-        if (props.updateCard) props.updateCard(props.boardId, values.id, values);
+        // Save values to local storage whenever they change
+        localStorage.setItem("projectValues", JSON.stringify(values));
     }, [values]);
 
+
+    const handleBudgetChange = (e) => {
+        setValues({ ...values, budget: e.target.value });
+    };
+
+    const handleBudgetUnitChange = (e) => {
+        setValues({ ...values, budgetUnit: e.target.value });
+    };
+
     return (
-        <Modal onClose={props.onClose}>
-            <div className="cardinfo">
+        <div className="Project scrollable-project">
 
-                <div className="cardinfo_inline_boxes">
-                    <div className="cardinfo_inline_box">
-                        <div className="cardinfo_box_title">
-                            <p>Weight (%)</p>
-                        </div>
-                        <input
-                            type="number"
-                            value={values.weight}
-                            onChange={(e) => {
-                                if (e.target.value <= 100) {
-                                    setValues({ ...values, weight: e.target.value })
-                                }
-                            }}
-                            placeholder="Enter Weight (max 100)"
-                            className="input_box"
-                            style={{ width: '300px' }}
-                            max={100}
-                        />
-                    </div>
-
+            <div className="project_inline_box budget">
+                <p style={{ marginRight: "29px", fontSize: "15px" }}>Budget</p>
+                <div>
+                    <input
+                        type="number"
+                        value={values.budget}
+                        onChange={handleBudgetChange}
+                        placeholder="Enter budget"
+                        style={{ width: "90px" }}
+                    />
+                    <select
+                        value={values.budgetUnit}
+                        onChange={handleBudgetUnitChange}
+                        style={{ marginLeft: "10px", width: "70px" }} // Added margin-left for spacing
+                    >
+                        <option value="$">$</option>
+                        <option value="€">€</option>
+                        <option value="£">£</option>
+                    </select>
                 </div>
             </div>
-        </Modal>
+        </div>
     );
 }
 
-export default CardInfo;
-
-
-
-
+export default Project_title;

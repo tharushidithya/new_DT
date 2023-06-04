@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Project_title.css";
 
-function Project_title(props) {
+function Project_title(props, budget) {
+
+    console.log("budget here:", budget);
+
     const [values, setValues] = useState({
         ...props.card,
         budget: 0,
@@ -24,6 +27,7 @@ function Project_title(props) {
 
     const handleBudgetChange = (e) => {
         setValues({ ...values, budget: e.target.value });
+
     };
 
     const handleBudgetUnitChange = (e) => {
@@ -31,6 +35,7 @@ function Project_title(props) {
     };
 
     return (
+
         <div className="Project scrollable-project">
             <div className="project_inline_box">
                 <p style={{ marginRight: "32px", fontSize: "15px" }}>Scope</p>
@@ -73,6 +78,7 @@ function Project_title(props) {
             </div>
 
             <div className="project_inline_box budget">
+
                 <p style={{ marginRight: "29px", fontSize: "15px" }}>Budget</p>
                 <div>
                     <input

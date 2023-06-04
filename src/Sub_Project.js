@@ -4,7 +4,7 @@ import KanbanApp from './KanbanApp.js';
 import Leftside from './Components/Leftside/Leftside.js';
 import Project_title from './Components/Project_title.js';
 
-function Sub_Project({ subProject, onBackButtonClick }) {
+function Sub_Project({ subProject, onBackButtonClick, props }) {
     const [cards, setCards] = useState([]);
     const [budget, setBudget] = useState(0);
     
@@ -32,10 +32,9 @@ function Sub_Project({ subProject, onBackButtonClick }) {
     return (
         <div className="Sub_Project">
             <div className="container scrollable">
-
                 <div className="column-container">
                     <h2 className="project_title">{subProject.id + ' ' + subProject.title}</h2>
-                    <Project_title setBudget={setBudget} />
+                    <Project_title {...props} budget={budget} />
                     <Leftside cards={cards} sumOfResults={sumOfResults} />
                 </div>
                 <button className="back_button" onClick={onBackButtonClick}><span>&#8680;</span></button>
@@ -44,9 +43,6 @@ function Sub_Project({ subProject, onBackButtonClick }) {
             </div>
         </div>
     );
-
-
-
 }
 
 export default Sub_Project;

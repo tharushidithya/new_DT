@@ -5,9 +5,8 @@ import Cost from "../Cost/Cost.js";
 import Chart_calc from "../Progress/Chart_calc.js";
 import Work_D_Chart from "../Work_D_Chart/Work_D_Chart.js";
 
-const Leftside = ({ cards }) => {
+const Leftside = ({ cards, budget  }) => {
 
-    const [budget, setBudget] = useState(0);
     const sumOfResults = cards.reduce(
         (total, card) => total + parseInt(card.result),
         0

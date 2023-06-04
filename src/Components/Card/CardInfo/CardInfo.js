@@ -23,7 +23,7 @@ function CardInfo(props) {
 
     const [kpi, setKpi] = useState("");
     const [kpiDesc, setKpiDesc] = useState("");
-    const [budget, setBudget] = useState("");
+    const [taskBudget, setTaskBudget] = useState("");
     const [cic, setCIC] = useState("");
     const [weight, setWeight] = useState(values.weight || "");
     const [achievedWeight, setAchievedWeight] = useState(values.achievedWeight || "");
@@ -38,8 +38,8 @@ function CardInfo(props) {
         setKpiDesc(event.target.value);
     };
 
-    const handleBudgetChange = (event) => {
-        setBudget(event.target.value);
+    const handleTaskBudgetChange = (event) => {
+        setTaskBudget(event.target.value);
     };
 
     const handleCICChange = (event) => {
@@ -155,8 +155,8 @@ function CardInfo(props) {
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <input
                             type="number"
-                            value={values.budget}
-                            onChange={(e) => setValues({ ...values, budget: e.target.value })}
+                            value={values.taskBudget}
+                            onChange={(e) => setValues({ ...values, taskBudget: e.target.value })}
                             placeholder="Enter Budget"
                             style={{ width: '200px',marginRight: '10px' }}
                         />
