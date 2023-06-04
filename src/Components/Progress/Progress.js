@@ -2,14 +2,15 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import 'chart.js/auto';
 import './Progress.css';
-const Progress = ({ cards, sumOfResults }) => {
+const Progress = () => {
+    // const Progress = ({ cards, sumOfResults }) => {
     const data = {
         labels: ["Weighted", "Remaining"],
         datasets: [
             {
                 label: "Progress",
-                data: [sumOfResults, 100 - sumOfResults],
-                backgroundColor: ["rgb(253, 142, 142)", "rgb(220, 220, 220)"],
+                data: [50,40,10],
+                backgroundColor: ["rgb(80,175,246)", "rgb(220, 220, 220)", "rgb(120,217,170)"],
                 hoverOffset: 4,
             },
         ],
