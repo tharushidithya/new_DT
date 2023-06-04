@@ -17,19 +17,19 @@ const Leftside = ({ cards, budget  }) => {
     <div>
             <div>
                 <div className="title">Progress</div>
-                <div className="body">
+                <div className="P_body">
                     <Progress sumOfResults={sumOfResults} />
                 </div>
             </div>
         <div>
             <div className="title">Work distribution</div>
-            <div className="body">
+            <div className="C_body">
                 <Work_D_Chart />
             </div>
         </div>
             <div>
                 <div className="title">Cost</div>
-                <div className="body">
+                <div className="C_body">
                     <Cost budget={budget} />
                 </div>
             </div>
