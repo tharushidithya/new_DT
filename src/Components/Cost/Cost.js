@@ -2,7 +2,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import "./Cost.css";
 
-const Cost = () => {
+const Cost = ({ budget }) => {
     const labels = ["Task Est. Budget", "Incurred Cost"];
     const data = {
         labels: labels,
@@ -19,7 +19,7 @@ const Cost = () => {
             {
                 label: "Budget",
                 borderColor: "rgb(0,0,0)",
-                data: [80, 80],
+                data: [budget, budget],
                 type:'line',
                 backgroundColor: [
                     'rgb(197,201,204)',

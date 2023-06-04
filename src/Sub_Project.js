@@ -6,7 +6,8 @@ import Project_title from './Components/Project_title.js';
 
 function Sub_Project({ subProject, onBackButtonClick }) {
     const [cards, setCards] = useState([]);
-
+    const [budget, setBudget] = useState(0);
+    
     const handleAddCard = () => {
         setCards([...cards, { weight: "", achievedWeight: "", result: 0 }]);
     };
@@ -34,7 +35,7 @@ function Sub_Project({ subProject, onBackButtonClick }) {
 
                 <div className="column-container">
                     <h2 className="project_title">{subProject.id + ' ' + subProject.title}</h2>
-                    <Project_title />
+                    <Project_title setBudget={setBudget} />
                     <Leftside cards={cards} sumOfResults={sumOfResults} />
                 </div>
                 <button className="back_button" onClick={onBackButtonClick}><span>&#8680;</span></button>

@@ -4,6 +4,7 @@ import "./Project_title.css";
 function Project_title(props) {
     const [values, setValues] = useState({
         ...props.card,
+        budget: 0,
         budgetUnit: "$", // Default budget unit
     });
 
@@ -19,6 +20,11 @@ function Project_title(props) {
         // Save values to local storage whenever they change
         localStorage.setItem("projectValues", JSON.stringify(values));
     }, [values]);
+
+
+    const handleBudgetChange = (e) => {
+        setValues({ ...values, budget: e.target.value });
+    };
 
     const handleBudgetUnitChange = (e) => {
         setValues({ ...values, budgetUnit: e.target.value });
@@ -72,7 +78,7 @@ function Project_title(props) {
                     <input
                         type="number"
                         value={values.budget}
-                        onChange={(e) => setValues({ ...values, budget: e.target.value })}
+                        onChange={handleBudgetChange}
                         placeholder="Enter budget"
                         style={{ width: "90px" }}
                     />
