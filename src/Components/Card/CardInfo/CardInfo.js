@@ -2,15 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Calendar, CheckSquare, List, Tag, Trash, Type, X } from "react-feather";
 import Modal from "../../Modal/Modal.js";
 import Editable from "../../Editabled/Editable.js";
-
-
 import "./CardInfo.css";
 
 
 
-
 function CardInfo(props) {
-
 
     const [values, setValues] = useState({
         ...props.card,
@@ -60,7 +56,10 @@ function CardInfo(props) {
         setValues({ ...values, achievedWeight: event.target.value });
     };
 
-
+    const handleResultChange = (event) => {
+        setResult(event.target.value);
+        setValues({ ...values, result: event.target.value });
+    };
 
 
 
@@ -105,6 +104,7 @@ function CardInfo(props) {
     useEffect(() => {
         if (props.updateCard) props.updateCard(props.boardId, values.id, values, weight);
     }, [values, weight]);
+
 
     useEffect(() => {
         const calculatedResult = (parseInt(weight) * parseInt(achievedWeight)) / 100;
