@@ -1,5 +1,6 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
+import 'chart.js/auto';
 import './Progress.css';
 const Progress = ({ cards, sumOfResults }) => {
     const data = {
