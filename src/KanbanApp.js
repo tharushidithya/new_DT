@@ -116,7 +116,7 @@ function KanbanApp() {
             >
               <h2>Completed</h2>
             </Board>
-            <Work_D_Chart boardWeights={boardWeights} weight={weight} />
+            {/*<Work_D_Chart boardWeights={boardWeights} weight={weight} />*/}
 
           </div>
         </div>

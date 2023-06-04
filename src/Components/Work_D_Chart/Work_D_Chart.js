@@ -1,12 +1,13 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import Chart from 'chart.js/auto';
+import './Work_D_Chart.css';
 
-const Work_D_Chart = ({ boardWeights }) => {
-    if (!boardWeights) {
-        // Handle the case when boardWeights is undefined (loading state or error message)
-        return <div>Loading...</div>; // You can replace this with an appropriate loading state or error message component
-    }
+const Work_D_Chart = () => {
+    // const Work_D_Chart = ({ boardWeights }) => {
+    // if (!boardWeights) {
+    //     // Handle the case when boardWeights is undefined (loading state or error message)
+    //     return <div>Loading...</div>; // You can replace this with an appropriate loading state or error message component
+    // }
 
     // Rest of the component code
     const data = {
@@ -14,7 +15,8 @@ const Work_D_Chart = ({ boardWeights }) => {
         datasets: [
             {
                 label: 'Work Distribution',
-                data: boardWeights.map((board) => board.weightSum),
+                data: [50,40,10],
+                // data: boardWeights.map((board) => board.weightSum),
                 backgroundColor: [
                     'rgb(253,142,142)',
                     'rgb(181,215,99)',
@@ -26,7 +28,7 @@ const Work_D_Chart = ({ boardWeights }) => {
     };
 
     return (
-        <div>
+        <div className="w-chart-container">
             <Doughnut data={data} />
         </div>
     );

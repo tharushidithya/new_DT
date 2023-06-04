@@ -17,7 +17,7 @@ const Leftside = ({ cards, budget  }) => {
     <div>
             <div>
                 <div className="title">Progress</div>
-                <div className="P_body">
+                <div className="C_body">
                     <Progress sumOfResults={sumOfResults} />
                 </div>
             </div>
