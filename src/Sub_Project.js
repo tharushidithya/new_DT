@@ -12,6 +12,10 @@ function Sub_Project({ subProject, onBackButtonClick, props }) {
         setCards([...cards, { weight: "", achievedWeight: "", result: 0 }]);
     };
 
+    const handleBudgetChange = (b) => {
+        setBudget(b)
+    }
+
     const handleRemoveCard = (index) => {
         const updatedCards = [...cards];
         updatedCards.splice(index, 1);
@@ -34,11 +38,10 @@ function Sub_Project({ subProject, onBackButtonClick, props }) {
             <div className="container scrollable">
                 <div className="column-container">
                     <h2 className="project_title">{subProject.id + ' ' + subProject.title}</h2>
-                    <Project_title {...props} budget={budget} />
-                    <Leftside cards={cards} sumOfResults={sumOfResults} />
+                    <Project_title {...props} budget={budget} setBudget={handleBudgetChange} />
+                    <Leftside cards={cards} sumOfResults={sumOfResults} budget={budget} />
                 </div>
                 <button className="back_button" onClick={onBackButtonClick}><span>&#8680;</span></button>
-                {/* Render the subproject page content */}
                 <KanbanApp />
             </div>
         </div>

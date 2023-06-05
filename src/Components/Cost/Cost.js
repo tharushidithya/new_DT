@@ -18,8 +18,8 @@ const Cost = ({ budget }) => {
             {
                 label: "Budget",
                 borderColor: "rgb(0,0,0)",
-                // data: [budget, budget],
-                data: [80, 80],
+                data: [budget, budget],
+                // data: [80, 100 - 80],
                 type: "line",
                 backgroundColor: ["rgb(197,201,204)"],
             },

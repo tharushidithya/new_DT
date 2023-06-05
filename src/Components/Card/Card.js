@@ -74,10 +74,10 @@ function Card(props) {
 
                 <div className="card_info">
                     {taskBudget && (<div className="card_info_item">
-                        <span className="card_info_label">Budget:{taskBudget && <span className="card_info_value" >{taskBudget}</span>}</span>
+                        <span className="card_info_label">Budget:{taskBudget && <span className="card_info_value" >{taskBudget} LKR</span>}</span>
                     </div>)}
                     {cic && (<div className="card_info_item" >
-                        <span className="card_info_label" style={{marginLeft:'35px'}}>Current incurred cost: {cic && <span className="card_info_value" style={{marginLeft:'5px'}}>{cic}</span>}</span>
+                        <span className="card_info_label" style={{marginLeft:'35px'}}>Current incurred cost: {cic && <span className="card_info_value" style={{marginLeft:'5px'}}>{cic} LKR</span>}</span>
                     </div>)}
 
                 </div>
@@ -85,10 +85,10 @@ function Card(props) {
 
                 <div className="card_info">
                     {weight && (<div className="card_info_item">
-                        <span className="card_info_label">Weight:{weight && <span className="card_info_value" style={{marginLeft:'5px'}}>{weight}</span>}</span>
+                        <span className="card_info_label">Weight:{weight && <span className="card_info_value" style={{marginLeft:'5px'}}>{weight}%</span>}</span>
                     </div>)}
                     {achievedWeight && (<div className="card_info_item" >
-                        <span className="card_info_label" style={{marginLeft:'30px'}}>Achieved Weight: {achievedWeight && <span className="card_info_value" style={{marginLeft:'5px'}}>{achievedWeight}</span>}</span>
+                        <span className="card_info_label" style={{marginLeft:'30px'}}>Achieved Weight: {achievedWeight && <span className="card_info_value" style={{marginLeft:'5px'}}>{achievedWeight}%</span>}</span>
                     </div>)}
 
                 </div>

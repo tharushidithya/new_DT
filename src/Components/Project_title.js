@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Project_title.css";
+import {setBatch} from "react-redux/es/utils/batch.js";
 
-function Project_title(props, budget) {
-
+function Project_title(props) {
+    let setBudget = props.setBudget;
+    let budget = props.budget;
     console.log("budget here:", budget);
+    console.log(props.setBudget)
 
     const [values, setValues] = useState({
         ...props.card,
@@ -26,8 +29,7 @@ function Project_title(props, budget) {
 
 
     const handleBudgetChange = (e) => {
-        setValues({ ...values, budget: e.target.value });
-
+        setBudget(e.target.value);
     };
 
     const handleBudgetUnitChange = (e) => {
@@ -83,18 +85,11 @@ function Project_title(props, budget) {
                 <div>
                     <input
                         type="number"
-                        value={values.budget}
+                        value={budget}
                         onChange={handleBudgetChange}
                         placeholder="Enter budget"
                         style={{ width: "90px" }}
-                    />
-                    <select
-                        value={values.budgetUnit}
-                        onChange={handleBudgetUnitChange}
-                        style={{ marginLeft: "10px", width: "70px" }} // Added margin-left for spacing
-                    >
-                        <option value="lkr">LKR</option>
-                    </select>
+                    /> <span style={{ width: "fit-content", fontSize: "10px", background:'white', padding:'3px' }}>LKR</span>
                 </div>
             </div>
         </div>
