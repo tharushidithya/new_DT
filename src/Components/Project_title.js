@@ -43,7 +43,7 @@ function Project_title(props, budget) {
                     type="text"
                     value={values.desc}
                     onChange={(e) => setValues({ ...values, desc: e.target.value })}
-                    placeholder="Enter description"
+                    placeholder="Enter scope"
                 />
             </div>
 
