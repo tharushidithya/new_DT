@@ -28,7 +28,7 @@ const Leftside = ({ cards, budget  }) => {
             </div>
         </div>
             <div>
-                <div className="title">Cost</div>
+                <div className="title">Finance</div>
                 <div className="C_body">
                     <Cost budget={budget} />
                 </div>

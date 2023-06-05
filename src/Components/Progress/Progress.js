@@ -9,7 +9,7 @@ const Progress = () => {
         datasets: [
             {
                 label: "Progress",
-                data: [50,40,10],
+                data: [45,55],
                 backgroundColor: ["rgb(80,175,246)", "rgb(220, 220, 220)", "rgb(120,217,170)"],
                 hoverOffset: 4,
             },

@@ -164,9 +164,8 @@ function CardInfo(props) {
                             value={values.budgetUnit}
                             style={{ width: '80px', padding:'7px', border: '1px solid #ccc', borderRadius:'4px'}}
                         >
-                            <option value="$">$</option>
-                            <option value="€">€</option>
-                            <option value="£">£</option>
+                            <option value="lkr">LKR</option>
+
                         </select>
                     </div>
                 </div>
@@ -187,9 +186,7 @@ function CardInfo(props) {
                                 value={values.budgetUnit}
                                 style={{ width: '80px', padding:'7px', border: '1px solid #ccc', borderRadius:'4px'}}
                             >
-                                <option value="$">$</option>
-                                <option value="€">€</option>
-                                <option value="£">£</option>
+                                <option value="lkr">LKR</option>
                             </select>
                         </div>
                     </div>

@@ -10,16 +10,16 @@ const Cost = ({ budget }) => {
         labels: labels,
         datasets: [
             {
-                label: "Cost",
+                label: "Expenditure",
                 borderColor: "rgb(0,0,0)",
-                data: [50, 20],
+                data: [55, 38],
                 backgroundColor: ["rgb(157,250,208)", "rgb(203,156,156)"],
             },
             {
                 label: "Budget",
                 borderColor: "rgb(0,0,0)",
                 // data: [budget, budget],
-                data: [60, 60],
+                data: [80, 80],
                 type: "line",
                 backgroundColor: ["rgb(197,201,204)"],
             },

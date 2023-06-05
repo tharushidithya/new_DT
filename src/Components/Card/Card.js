@@ -10,7 +10,7 @@ function Card(props) {
     const [showDropdown, setShowDropdown] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
-    const { id, title, startDate, tasks, kpi,kpiDesc,  budget,cic, weight,achievedWeight, endDate, actualStartDate,actualEndDate } = props.card;
+    const { id, title, startDate, tasks, kpi, kpiDesc,  taskBudget, cic, weight,achievedWeight, endDate, actualStartDate,actualEndDate } = props.card;
 
     const formatDate = (value) => {
         if (!value) return "";
@@ -73,8 +73,8 @@ function Card(props) {
 
 
                 <div className="card_info">
-                    {budget && (<div className="card_info_item">
-                        <span className="card_info_label">Budget:{budget && <span className="card_info_value" style={{marginLeft:'5px'}}>{budget}</span>}</span>
+                    {taskBudget && (<div className="card_info_item">
+                        <span className="card_info_label">Budget:{taskBudget && <span className="card_info_value" >{taskBudget}</span>}</span>
                     </div>)}
                     {cic && (<div className="card_info_item" >
                         <span className="card_info_label" style={{marginLeft:'35px'}}>Current incurred cost: {cic && <span className="card_info_value" style={{marginLeft:'5px'}}>{cic}</span>}</span>

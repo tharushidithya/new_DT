@@ -8,7 +8,7 @@ function Project_title(props, budget) {
     const [values, setValues] = useState({
         ...props.card,
         budget: 0,
-        budgetUnit: "$", // Default budget unit
+        budgetUnit: "lkr", // Default budget unit
     });
 
     useEffect(() => {
@@ -93,9 +93,7 @@ function Project_title(props, budget) {
                         onChange={handleBudgetUnitChange}
                         style={{ marginLeft: "10px", width: "70px" }} // Added margin-left for spacing
                     >
-                        <option value="$">$</option>
-                        <option value="€">€</option>
-                        <option value="£">£</option>
+                        <option value="lkr">LKR</option>
                     </select>
                 </div>
             </div>
