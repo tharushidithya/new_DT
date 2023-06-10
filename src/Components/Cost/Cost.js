@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2";
 import 'chart.js/auto';
 import "./Cost.css";
 
-const Cost = ({ budget }) => {
+const Cost = ({  budget, cic, taskBudget }) => {
     console.log("budget cost:", budget);
     const labels = ["Task Est. Budget", "Incurred Cost"];
     const data = {
@@ -12,7 +12,7 @@ const Cost = ({ budget }) => {
             {
                 label: "Expenditure",
                 borderColor: "rgb(0,0,0)",
-                data: [55, 38],
+                data: [taskBudget, cic],
                 backgroundColor: ["rgb(157,250,208)", "rgb(203,156,156)"],
             },
             {
