@@ -5,7 +5,8 @@ import Cost from "../Cost/Cost.js";
 import Chart_calc from "../Progress/Chart_calc.js";
 import Work_D_Chart from "../Work_D_Chart/Work_D_Chart.js";
 
-const Leftside = ({ cards, budget  }) => {
+const Leftside = ({cards, budget}) => {
+
 
     const sumOfResults = cards.reduce(
         (total, card) => total + parseInt(card.result),
@@ -30,7 +31,7 @@ const Leftside = ({ cards, budget  }) => {
             <div>
                 <div className="title">Finance</div>
                 <div className="C_body">
-                    <Cost budget={budget} />
+                    <Cost budget={budget}  />
                 </div>
             </div>
         </div>

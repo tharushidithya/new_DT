@@ -29,6 +29,7 @@ function Card(props) {
                 <CardInfo
                     onClose={() => setShowModal(false)}
                     card={props.card}
+                    cardId={props.cardId}
                     boardId={props.boardId}
                     updateCard={props.updateCard}
                 />

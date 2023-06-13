@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Work_D_Chart from "./Components/Work_D_Chart/Work_D_Chart.js";
+// import Work_D_Chart from "./Components/Work_D_Chart/Work_D_Chart.js";
 import Board from "./Components/Board/Board.js";
 import { getBoardWeightSum } from "./Components/Work_D_Chart/helpers.js";
 
@@ -10,6 +10,8 @@ function KanbanApp() {
   const [boards, setBoards] = useState(
       JSON.parse(localStorage.getItem("prac-kanban")) || []
   );
+
+
 
   const addCardHandler = (id, title) => {
     const index = boards.findIndex((item) => item.id === id);

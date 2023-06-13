@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Calendar, CheckSquare, List, Tag, Trash, Type, X } from "react-feather";
+import { Calendar, CheckSquare, List, Type} from "react-feather";
 import Modal from "../../Modal/Modal.js";
 import Editable from "../../Editabled/Editable.js";
 import "./CardInfo.css";
+
+import { useDispatch } from 'react-redux';
+import { updateTaskBudget, updateCic, calculateTotalBudget  } from "../../../reducers/actions.js";
 
 
 
 function CardInfo(props) {
 
+    const { cardId } = props;
     const [values, setValues] = useState({
         ...props.card,
+        ...props.cardId,
     });
+
+    const dispatch = useDispatch();
+
 
     const updateTitle = (value) => {
         setValues({ ...values, title: value });
@@ -23,8 +31,8 @@ function CardInfo(props) {
 
     const [kpi, setKpi] = useState("");
     const [kpiDesc, setKpiDesc] = useState("");
-    const [taskBudget, setTaskBudget] = useState("");
-    const [cic, setCIC] = useState("");
+    // const [taskBudget, setTaskBudget] = useState("");
+    // const [cic, setCic] = useState("");
     const [weight, setWeight] = useState(values.weight || "");
     const [achievedWeight, setAchievedWeight] = useState(values.achievedWeight || "");
     const [result, setResult] = useState(0); // Store the calculated result
@@ -39,11 +47,21 @@ function CardInfo(props) {
     };
 
     const handleTaskBudgetChange = (event) => {
-        setTaskBudget(event.target.value);
+        const newBudget = event.target.value;
+        dispatch(updateTaskBudget(cardId, newBudget));
+        setValues((prevValues) => ({
+            ...prevValues,
+            taskBudget: newBudget,
+        }));
     };
 
-    const handleCICChange = (event) => {
-        setCIC(event.target.value);
+    const handleCicChange = (event) => {
+        const newCic = event.target.value;
+        dispatch(updateCic(cardId, newCic));
+        setValues((prevValues) => ({
+            ...prevValues,
+            cic: newCic,
+        }));
     };
 
     const handleWeightChange = (event) => {
@@ -156,7 +174,7 @@ function CardInfo(props) {
                         <input
                             type="number"
                             value={values.taskBudget}
-                            onChange={(e) => setValues({ ...values, taskBudget: e.target.value })}
+                            onChange={handleTaskBudgetChange}
                             placeholder="Enter Budget"
                             style={{ width: '200px',marginRight: '10px' }}
                         />
@@ -178,7 +196,7 @@ function CardInfo(props) {
                             <input
                                 type="number"
                                 value={values.cic}
-                                onChange={(e) => setValues({ ...values, cic: e.target.value })}
+                                onChange={handleCicChange}
                                 placeholder="Enter Current incurred cost"
                                 style={{ width: '200px',marginRight: '10px' }}
                             />

@@ -1,61 +1,103 @@
 import React, { useEffect, useState } from "react";
-import "./Project_title.css";
+import { Calendar, CheckSquare, List, Type} from "react-feather";
+import Modal from "../../Modal/Modal.js";
+import Editable from "../../Editabled/Editable.js";
+import "./CardInfo.css";
 
-function Project_title(props) {
+import { useDispatch } from 'react-redux';
+import { updateTaskBudget, updateCic } from "../../../reducers/actions.js";
+
+
+
+function CardInfo(props) {
+
+    const { cardId } = props;
     const [values, setValues] = useState({
         ...props.card,
-        budget: 0,
-        budgetUnit: "$", // Default budget unit
+        ...props.cardId,
     });
 
-    useEffect(() => {
-        // Get values from local storage if available
-        const storedValues = localStorage.getItem("projectValues");
-        if (storedValues) {
-            setValues(JSON.parse(storedValues));
-        }
-    }, []);
-
-    useEffect(() => {
-        // Save values to local storage whenever they change
-        localStorage.setItem("projectValues", JSON.stringify(values));
-    }, [values]);
+    const dispatch = useDispatch();
 
 
-    const handleBudgetChange = (e) => {
-        setValues({ ...values, budget: e.target.value });
+    const [taskBudget, setTaskBudget] = useState("");
+    const [cic, setCic] = useState("");
+
+
+    const handleTaskBudgetChange = (event) => {
+        const newBudget = event.target.value;
+        dispatch(updateTaskBudget(props.cardId, newBudget));
     };
 
-    const handleBudgetUnitChange = (e) => {
-        setValues({ ...values, budgetUnit: e.target.value });
+    const handleCicChange = (event) => {
+        const newCic = event.target.value;
+        dispatch(updateCic(props.cardId, newCic));
     };
+
+
+
+
+    useEffect(() => {
+        if (props.updateCard) props.updateCard(props.boardId, values.id, values, weight);
+    }, [values, weight]);
+
+
+
 
     return (
-        <div className="Project scrollable-project">
+        <Modal onClose={props.onClose}>
+            <div className="cardinfo">
 
-            <div className="project_inline_box budget">
-                <p style={{ marginRight: "29px", fontSize: "15px" }}>Budget</p>
-                <div>
-                    <input
-                        type="number"
-                        value={values.budget}
-                        onChange={handleBudgetChange}
-                        placeholder="Enter budget"
-                        style={{ width: "90px" }}
-                    />
-                    <select
-                        value={values.budgetUnit}
-                        onChange={handleBudgetUnitChange}
-                        style={{ marginLeft: "10px", width: "70px" }} // Added margin-left for spacing
-                    >
-                        <option value="$">$</option>
-                        <option value="€">€</option>
-                        <option value="£">£</option>
-                    </select>
+                <div className="cardinfo_inline_boxes">
+                    <div className="cardinfo_inline_box" style={{ paddingRight: '2rem', width: '18rem' }}>
+                        <div className="cardinfo_box_title">
+                            <p>Budget</p>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <input
+                                type="number"
+                                value={values.taskBudget}
+                                onChange={(e) => setValues({ ...values, taskBudget: e.target.value })}
+                                placeholder="Enter Budget"
+                                style={{ width: '200px',marginRight: '10px' }}
+                            />
+                            <select
+                                value={values.budgetUnit}
+                                style={{ width: '80px', padding:'7px', border: '1px solid #ccc', borderRadius:'4px'}}
+                            >
+                                <option value="lkr">LKR</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="cardinfo_inline_box" style={{ paddingRight: '2rem', width: '18rem' }}>
+                        <div className="cardinfo_box_title">
+                            <p>Current incurred cost</p>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            <input
+                                type="number"
+                                value={values.cic}
+                                onChange={(e) => setValues({ ...values, cic: e.target.value })}
+                                placeholder="Enter Current incurred cost"
+                                style={{ width: '200px',marginRight: '10px' }}
+                            />
+                            <select
+                                value={values.budgetUnit}
+                                style={{ width: '80px', padding:'7px', border: '1px solid #ccc', borderRadius:'4px'}}
+                            >
+                                <option value="lkr">LKR</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
+
+
             </div>
-        </div>
+        </Modal>
     );
 }
 
-export default Project_title;
+export default CardInfo;

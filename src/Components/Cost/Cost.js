@@ -3,8 +3,19 @@ import { Bar } from "react-chartjs-2";
 import 'chart.js/auto';
 import "./Cost.css";
 
-const Cost = ({  budget, cic, taskBudget }) => {
+import { useSelector } from 'react-redux';
+
+const Cost = ({  budget}) => {
+
+    const taskBudget = useSelector((state) => state.taskBudget);
+    const cic = useSelector((state) => state.cic);
+
+
     console.log("budget cost:", budget);
+
+    // console.log("task budget cost:", taskBudget);
+
+
     const labels = ["Task Est. Budget", "Incurred Cost"];
     const data = {
         labels: labels,
