@@ -177,14 +177,7 @@ function CardInfo(props) {
                             onChange={handleTaskBudgetChange}
                             placeholder="Enter Budget"
                             style={{ width: '200px',marginRight: '10px' }}
-                        />
-                        <select
-                            value={values.budgetUnit}
-                            style={{ width: '80px', padding:'7px', border: '1px solid #ccc', borderRadius:'4px'}}
-                        >
-                            <option value="lkr">LKR</option>
-
-                        </select>
+                        /><span style={{ fontSize: "15px"}}>LKR</span>
                     </div>
                 </div>
 
@@ -199,13 +192,7 @@ function CardInfo(props) {
                                 onChange={handleCicChange}
                                 placeholder="Enter Current incurred cost"
                                 style={{ width: '200px',marginRight: '10px' }}
-                            />
-                            <select
-                                value={values.budgetUnit}
-                                style={{ width: '80px', padding:'7px', border: '1px solid #ccc', borderRadius:'4px'}}
-                            >
-                                <option value="lkr">LKR</option>
-                            </select>
+                            /><span style={{ fontSize: "15px"}}>LKR</span>
                         </div>
                     </div>
 

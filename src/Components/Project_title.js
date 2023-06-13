@@ -89,7 +89,7 @@ function Project_title(props) {
                         onChange={handleBudgetChange}
                         placeholder="Enter budget"
                         style={{ width: "90px" }}
-                    /> <span style={{ width: "fit-content", fontSize: "10px", background:'white', padding:'3px' }}>LKR</span>
+                    /> <span style={{ fontSize: "12px"}}>LKR</span>
                 </div>
             </div>
         </div>
