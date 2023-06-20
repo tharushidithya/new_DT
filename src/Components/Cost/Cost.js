@@ -9,7 +9,7 @@ const Cost = ({  budget}) => {
 
     const taskBudget = useSelector((state) => state.taskBudget);
     const cic = useSelector((state) => state.cic);
-
+    console.log("budget cic:", cic);
 
     console.log("budget cost:", budget);
 

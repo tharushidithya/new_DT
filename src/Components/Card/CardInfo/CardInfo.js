@@ -31,8 +31,8 @@ function CardInfo(props) {
 
     const [kpi, setKpi] = useState("");
     const [kpiDesc, setKpiDesc] = useState("");
-    // const [taskBudget, setTaskBudget] = useState("");
-    // const [cic, setCic] = useState("");
+    const [taskBudget, setTaskBudget] = useState("");
+    const [cic, setCic] = useState("");
     const [weight, setWeight] = useState(values.weight || "");
     const [achievedWeight, setAchievedWeight] = useState(values.achievedWeight || "");
     const [result, setResult] = useState(0); // Store the calculated result
