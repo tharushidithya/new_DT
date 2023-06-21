@@ -4,10 +4,6 @@ import Modal from "../../Modal/Modal.js";
 import Editable from "../../Editabled/Editable.js";
 import "./CardInfo.css";
 
-import { useDispatch } from 'react-redux';
-import { updateTaskBudget, updateCic, calculateTotalBudget  } from "../../../reducers/actions.js";
-
-
 
 function CardInfo(props) {
 
@@ -16,8 +12,6 @@ function CardInfo(props) {
         ...props.card,
         ...props.cardId,
     });
-
-    const dispatch = useDispatch();
 
 
     const updateTitle = (value) => {
@@ -47,21 +41,13 @@ function CardInfo(props) {
     };
 
     const handleTaskBudgetChange = (event) => {
-        const newBudget = event.target.value;
-        dispatch(updateTaskBudget(cardId, newBudget));
-        setValues((prevValues) => ({
-            ...prevValues,
-            taskBudget: newBudget,
-        }));
+        setTaskBudget(event.target.value);
+        setValues({ ...values, taskBudget: event.target.value });
     };
 
     const handleCicChange = (event) => {
-        const newCic = event.target.value;
-        dispatch(updateCic(cardId, newCic));
-        setValues((prevValues) => ({
-            ...prevValues,
-            cic: newCic,
-        }));
+        setCic(event.target.value);
+        setValues({ ...values, cic: event.target.value });
     };
 
     const handleWeightChange = (event) => {
@@ -174,7 +160,7 @@ function CardInfo(props) {
                         <input
                             type="number"
                             value={values.taskBudget}
-                            onChange={handleTaskBudgetChange}
+                            onChange={(e) => setValues({ ...values, taskBudget: e.target.value })}
                             placeholder="Enter Budget"
                             style={{ width: '200px',marginRight: '10px' }}
                         /><span style={{ fontSize: "15px"}}>LKR</span>
@@ -189,7 +175,7 @@ function CardInfo(props) {
                             <input
                                 type="number"
                                 value={values.cic}
-                                onChange={handleCicChange}
+                                onChange={(e) => setValues({ ...values, cic: e.target.value })}
                                 placeholder="Enter Current incurred cost"
                                 style={{ width: '200px',marginRight: '10px' }}
                             /><span style={{ fontSize: "15px"}}>LKR</span>
