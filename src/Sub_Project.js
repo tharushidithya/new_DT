@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import './App.css';
 import KanbanApp from './KanbanApp.js';
 import Leftside from './Components/Leftside/Leftside.js';
@@ -7,8 +7,23 @@ import Project_title from './Components/Project_title.js';
 function Sub_Project({ subProject, onBackButtonClick, props }) {
     const [cards, setCards] = useState([]);
     const [budget, setBudget] = useState(0);
+    const [completed, setCompleted] = useState(0);
+    const [incompleted, setIncompleted] = useState(0);
 
+    const [boards, setBoards] = useState(
+        JSON.parse(localStorage.getItem("prac-kanban")) || []
+    );
 
+    useEffect(() => {
+        console.log(boards)
+        if(boards.length > 1)
+            setIncompleted(boards[0].cards.length + boards[1].cards.length)
+
+        if(boards.length > 2)
+            setCompleted(boards[2].cards.length)
+
+        console.log(completed, incompleted)
+    }, [boards])
 
     const handleAddCard = () => {
         setCards([...cards, { weight: "", achievedWeight: "", result: 0 }]);
@@ -41,7 +56,7 @@ function Sub_Project({ subProject, onBackButtonClick, props }) {
                 <div className="column-container">
                     <h2 className="project_title">{subProject.id + ' ' + subProject.title}</h2>
                     <Project_title {...props} budget={budget} setBudget={handleBudgetChange} />
-                    <Leftside cards={cards} sumOfResults={sumOfResults} budget={budget}  />
+                    <Leftside cards={cards} budget={budget} progress={{completed: completed, incompleted: incompleted}} />
                 </div>
                 <button className="back_button" onClick={onBackButtonClick}><span>&#8680;</span></button>
                 <KanbanApp  />

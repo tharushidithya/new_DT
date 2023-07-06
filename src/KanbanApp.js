@@ -10,6 +10,14 @@ function KanbanApp() {
   const [boards, setBoards] = useState(
       JSON.parse(localStorage.getItem("prac-kanban")) || []
   );
+  // const [incompleted, setIncompleted] = useState(0);
+  // const [completed, setCompleted] = useState(0)
+  //
+  // if(boards.length > 1)
+  //   setIncompleted(boards[0].length + boards[1].length)
+  //
+  // if(boards.length > 2)
+  //   setCompleted(boards[2])
 
 
 

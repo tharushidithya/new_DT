@@ -2,6 +2,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import 'chart.js/auto';
 import "./Cost.css";
+import CardCost from "./CardCost.js";
 
 import { useSelector } from 'react-redux';
 
