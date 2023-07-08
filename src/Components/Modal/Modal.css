@@ -28,12 +28,12 @@
 /* Modal.css */
 .close_button {
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 50px;
   font-size: 12px;
   cursor: pointer;
-  color: #ffffff;
-  background: black;
+  color: #000000;
+  background: #ffffff;
   padding:10px;
   font-weight: bold;
   border-radius: 3px;

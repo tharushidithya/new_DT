@@ -3,11 +3,18 @@ import { Calendar, CheckSquare, List, Type} from "react-feather";
 import Modal from "../../Modal/Modal.js";
 import Editable from "../../Editabled/Editable.js";
 import "./CardInfo.css";
+import { v4 as uuidv4 } from 'uuid';
+
+import {db} from "../../../Config/Firebase.js";
+import {collection, getDoc, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
+
 
 
 function CardInfo(props) {
 
-    const { cardId } = props;
+    const taskId = uuidv4();
+
+
     const [values, setValues] = useState({
         ...props.card,
         ...props.cardId,
@@ -32,6 +39,7 @@ function CardInfo(props) {
     const [result, setResult] = useState(0); // Store the calculated result
 
 
+
     const handleKpiChange = (event) => {
         setKpi(event.target.value);
     };
@@ -49,6 +57,7 @@ function CardInfo(props) {
         setCic(event.target.value);
         setValues({ ...values, cic: event.target.value });
     };
+
 
     const handleWeightChange = (event) => {
         setWeight(event.target.value);
@@ -105,6 +114,45 @@ function CardInfo(props) {
     };
 
 
+
+    const updateValues = async () => {
+        const taskRef = doc(db, "taskInfo", taskId);
+
+        // Update the document with the new values
+        await updateDoc(taskRef, {
+            title:values.title,
+            desc: values.desc,
+            kpi: values.kpi,
+            cic: values.cic,
+            taskBudget: values.taskBudget,
+            weight: values.weight,
+            achievedWeight: values.achievedWeight,
+        });
+
+        console.log(" updated values in Firestore");
+    };
+
+    const updateSubValues = async (subTaskId) => {
+        const subTaskRef = doc(db, "taskInfo", subTaskId);
+
+        // Update the document with the new values
+        await updateDoc(subTaskRef, {
+            subTitle:values.subTitle,
+        subDescription:values.subDescription,
+        subPlannedStartDate:values.subPlannedStartDate,
+        subPlannedEndDate:values.subPlannedEndDate,
+        subActualStartDate:values.subActualStartDate,
+        subActualEndDate:values.subActualEndDate,
+        subStatus:values.subStatus,
+        subRemark:values.subRemark,
+        subMembersAssigned:values.subMembersAssigned,
+        });
+
+        console.log(" updated sub values in Firestore");
+    };
+
+
+
     useEffect(() => {
         if (props.updateCard) props.updateCard(props.boardId, values.id, values, weight);
     }, [values, weight]);
@@ -124,6 +172,14 @@ function CardInfo(props) {
     return (
         <Modal onClose={props.onClose}>
             <div className="cardinfo">
+
+                <button style={{marginLeft:"72rem", width:'4rem',fontSize: "12px",
+                    color: "#ffffff",
+                    background: "black",
+                    padding:"10px",
+                    fontWeight: "bold",
+                    borderRadius: "3px"}} onClick={updateValues}>Save</button>
+
                 <div className="cardinfo_box">
                     <div className="cardinfo_box_title">
                         <Type />
@@ -181,6 +237,7 @@ function CardInfo(props) {
                             /><span style={{ fontSize: "15px"}}>LKR</span>
                         </div>
                     </div>
+
 
                 </div>
 
@@ -325,15 +382,18 @@ function CardInfo(props) {
                                 <th>Status</th>
                                 <th>Remark</th>
                                 <th>Members Assigned</th>
+
                             </tr>
                             </thead>
+
                             <tbody>
                             {values.tasks?.map((item) => (
                                 <tr key={item.id} className={"subtask_card"}>
+
                                     <td >
                                         <input
                                             type="text"
-                                            value={item.text}
+                                            value={item.subTitle}
                                             onChange={(event) =>
                                                 updateTask(item.id, "text", event.target.value)
                                             }
@@ -342,7 +402,7 @@ function CardInfo(props) {
                                     </td>
                                     <td>
                                         <textarea
-                                            value={item.description}
+                                            value={item.subDescription}
                                             onChange={(event) =>
                                                 updateTask(item.id, "description", event.target.value)
                                             }
@@ -353,7 +413,7 @@ function CardInfo(props) {
                                         <div className="calendar-input">
                                             <input
                                                 type="date"
-                                                value={item.plannedStartDate || ""}
+                                                value={item.subPlannedStartDate || ""}
                                                 onChange={(event) =>
                                                     updateTask(item.id, "plannedStartDate", event.target.value)
                                                 }
@@ -365,7 +425,7 @@ function CardInfo(props) {
                                         <div className="calendar-input">
                                             <input
                                                 type="date"
-                                                value={item.plannedEndDate || ""}
+                                                value={item.subPlannedEndDate || ""}
                                                 onChange={(event) =>
                                                     updateTask(item.id, "plannedEndDate", event.target.value)
                                                 }
@@ -376,7 +436,7 @@ function CardInfo(props) {
                                         <div className="calendar-input">
                                             <input
                                                 type="date"
-                                                value={item.actualStartDate || ""}
+                                                value={item.subActualStartDate || ""}
                                                 onChange={(event) =>
                                                     updateTask(item.id, "actualStartDate", event.target.value)
                                                 }
@@ -387,7 +447,7 @@ function CardInfo(props) {
                                         <div className="calendar-input">
                                             <input
                                                 type="date"
-                                                value={item.actualEndDate || ""}
+                                                value={item.subActualEndDate || ""}
                                                 onChange={(event) =>
                                                     updateTask(item.id, "actualEndDate", event.target.value)
                                                 }
@@ -396,7 +456,7 @@ function CardInfo(props) {
                                     </td>
                                     <td>
                                         <select
-                                            value={item.status || ""}
+                                            value={item.subStatus || ""}
                                             onChange={(event) =>
                                                 updateTask(item.id, "status", event.target.value)
                                             }
@@ -409,7 +469,7 @@ function CardInfo(props) {
                                     </td>
                                     <td>
                                         <textarea
-                                            value={item.remark}
+                                            value={item.subRemark}
                                             onChange={(event) =>
                                                 updateTask(item.id, "remark", event.target.value)
                                             }
@@ -418,12 +478,15 @@ function CardInfo(props) {
                                     </td>
                                     <td>
                                         <textarea
-                                            value={item.membersAssigned}
+                                            value={item.subMembersAssigned}
                                             onChange={(event) =>
                                                 updateTask(item.id, "membersAssigned", event.target.value)
                                             }
                                             style={{ width: 'fit-content' }}
                                         />
+                                    </td>
+                                    <td >
+                                        <button style={{ width: "4rem",  }} onClick={() => updateSubValues(item.id)}>Save subtask</button>
                                     </td>
                                 </tr>
                             ))}

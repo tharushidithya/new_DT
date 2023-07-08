@@ -12,7 +12,7 @@ function Modal(props) {
         className="modal_content custom-scroll"
         onClick={(event) => event.stopPropagation()}
       >
-        <button className="close_button" onClick={props.onClose}> save & close
+        <button className="close_button" onClick={props.onClose}> Close
         </button>
         {props.children}
       </div>
