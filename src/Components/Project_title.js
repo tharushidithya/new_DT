@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Project_title.css";
-import {setBatch} from "react-redux/es/utils/batch.js";
+import {db} from "../Config/Firebase.js";
+import {collection, getDoc, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
 
 function Project_title(props) {
     let setBudget = props.setBudget;
@@ -14,26 +15,19 @@ function Project_title(props) {
         budgetUnit: "lkr", // Default budget unit
     });
 
-    useEffect(() => {
-        // Get values from local storage if available
-        const storedValues = localStorage.getItem("projectValues");
-        if (storedValues) {
-            setValues(JSON.parse(storedValues));
+    const saveDataToFirestore = async () => {
+        try {
+            const projectRef = doc(db, "projects", "your_project_id"); // Replace "your_project_id" with your actual project ID in Firestore
+            await updateDoc(projectRef, values); // Save the updated values to Firestore
+            console.log("Data saved to Firestore successfully!");
+        } catch (error) {
+            console.error("Error saving data to Firestore:", error);
         }
-    }, []);
-
-    useEffect(() => {
-        // Save values to local storage whenever they change
-        localStorage.setItem("projectValues", JSON.stringify(values));
-    }, [values]);
-
+    };
 
     const handleBudgetChange = (e) => {
         setBudget(e.target.value);
-    };
-
-    const handleBudgetUnitChange = (e) => {
-        setValues({ ...values, budgetUnit: e.target.value });
+        setValues({ ...values, budget: e.target.value });
     };
 
     return (
@@ -92,6 +86,12 @@ function Project_title(props) {
                     /> <span style={{ fontSize: "12px"}}>LKR</span>
                 </div>
             </div>
+            <button style={{marginLeft:"13rem", width:'3rem',fontSize: "10px",
+                color: "#ffffff",
+                background: "black",
+                padding:"6px",
+                fontWeight: "bold",
+                borderRadius: "3px"}} onClick={saveDataToFirestore}>Save </button>
         </div>
     );
 }
